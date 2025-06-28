@@ -1,12 +1,27 @@
-# React + Vite
+# Food Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This app is meant to help users find new recipes and also allow them to add the ingredients to their shopping list, to help them plan out their next meals!
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Mongo DB
+- Express
+- React
+- Node.js
+- HTML, CSS, JavaScript
 
-## Expanding the ESLint configuration
+## Future Ideas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Delivery App Integration
+
+Users will be able to add ingredients to a shopping list and then be able to have that list of items be delivered right to their doorstep!
+
+## Links to the Website
+
+Currently, these links are unavailable, come back later to find your next meal inspiration!
+
+### NOTES
+
+Hamburger favicon - (Find one that is free to use or create a new one)
+
+Recipe Images - (Replace with free to use images)

@@ -1,0 +1,11 @@
+.app {
+  background-color: #fff;
+  margin: 0;
+  max-width: 1440px;
+  text-wrap: nowrap;
+  font-size: 32px;
+}
+
+.app__content {
+  margin: 0 auto;
+}
