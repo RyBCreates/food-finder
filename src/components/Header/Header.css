@@ -1,4 +1,9 @@
 .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
   padding: 20px;
   display: flex;
   justify-content: space-between;
@@ -11,8 +16,8 @@
 
 .header__logo {
   background: #000;
-  width: 40px;
-  height: 40px;
+  width: 47px;
+  height: 47px;
 }
 
 .header__menu {
@@ -33,21 +38,28 @@
   font-size: 24px;
 }
 
+.navbar__link:hover {
+  cursor: pointer;
+  color: #6ea547;
+}
+
 .header__user-info {
   display: flex;
   justify-content: center;
   align-items: center;
   background: white;
   border: 1px solid black;
-  border-radius: 15px;
-  margin: 18px 30px;
+  border-radius: 10px;
+  margin: 18px 0 18px 30px;
   padding: 10px;
   gap: 10px;
+  cursor: pointer;
 }
 
 .header__username {
   font-size: 24px;
   margin: 0;
+  padding: 0 12px 0 20px;
 }
 
 .header__avatar {

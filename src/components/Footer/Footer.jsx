@@ -2,8 +2,8 @@ import "./Footer.css";
 
 function Footer() {
   return (
-    <footer>
-      <p>Developed By Ryan Bommarito</p>
+    <footer className="footer">
+      <p className="footer__copyright">Copyright 2025 - Ryan Bommarito</p>
     </footer>
   );
 }

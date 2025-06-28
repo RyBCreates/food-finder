@@ -1,7 +1,19 @@
 .home {
   background-image: url("../../assets/home-background.png");
-  padding: 100px 30px;
+  padding: 0 30px;
   background-repeat: no-repeat;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.home__content {
+  display: flex;
+  flex-direction: column;
+  max-width: 667px;
 }
 
 .home__title {
@@ -9,17 +21,16 @@
   background-clip: text;
   color: transparent;
   letter-spacing: 20px;
-  max-width: 645px;
   font-weight: 500;
   margin: 0;
-  padding: 15px;
+  padding: 200px 30px 0 15px;
   border-bottom: 2px solid transparent;
   border-image: linear-gradient(to right, #fff 0%, #f9e83f 68%, #fe4747 100%);
   border-image-slice: 1;
+  filter: drop-shadow(10px 5px 15px black);
 }
 
 .home__subtext-container {
-  max-width: 645px;
   margin: 15px 0 0 0;
   background: linear-gradient(to right, #fff 0%, #f9e83f 75%, #fe4747 100%);
   background-clip: text;
@@ -32,5 +43,13 @@
 }
 
 .home__button {
+  background: linear-gradient(to right, #fff 0%, #f9e83f 75%, #fe4747 100%);
+  border-radius: 10px;
+  margin-top: 20px;
   height: 70px;
+}
+
+.home__button:hover {
+  cursor: pointer;
+  background: linear-gradient(to right, #fe4747 0, #f9e83f 25%, #fff 100%);
 }
