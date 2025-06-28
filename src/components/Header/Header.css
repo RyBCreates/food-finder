@@ -1,3 +1,59 @@
 .header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
   background: linear-gradient(to right, #fff 0%, #f9e83f 20%, #fe4747 100%);
+  font-family: "Victor Mono", "Fira Code", "Source Code Pro", "Courier New",
+    Courier, monospace;
+}
+
+.header__logo {
+  background: #000;
+  width: 40px;
+  height: 40px;
+}
+
+.header__menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* MOVE TO NAVBAR COMPONENT */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 26px;
+}
+
+.navbar__link {
+  font-size: 24px;
+}
+
+.header__user-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border: 1px solid black;
+  border-radius: 15px;
+  margin: 18px 30px;
+  padding: 10px;
+  gap: 10px;
+}
+
+.header__username {
+  font-size: 24px;
+  margin: 0;
+}
+
+.header__avatar {
+  border: 1px solid black;
+  background: teal;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }

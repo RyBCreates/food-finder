@@ -1,0 +1,36 @@
+.home {
+  background-image: url("../../assets/home-background.png");
+  padding: 100px 30px;
+  background-repeat: no-repeat;
+}
+
+.home__title {
+  background: linear-gradient(to right, #fff 0%, #f9e83f 68%, #fe4747 100%);
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 20px;
+  max-width: 645px;
+  font-weight: 500;
+  margin: 0;
+  padding: 15px;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(to right, #fff 0%, #f9e83f 68%, #fe4747 100%);
+  border-image-slice: 1;
+}
+
+.home__subtext-container {
+  max-width: 645px;
+  margin: 15px 0 0 0;
+  background: linear-gradient(to right, #fff 0%, #f9e83f 75%, #fe4747 100%);
+  background-clip: text;
+  color: transparent;
+}
+
+.home__subtext {
+  font-size: 48px;
+  margin: 0;
+}
+
+.home__button {
+  height: 70px;
+}
