@@ -1,0 +1,28 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid black;
+  height: 60vh;
+}
+
+.sidebar__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  flex: 1;
+}
+
+.sidebar__link {
+  padding-right: 40px;
+}
+
+.sidebar__link:hover {
+  cursor: pointer;
+  color: green;
+}
+
+.sidebar__link_bottom {
+  margin-top: auto;
+}

@@ -1,9 +1,18 @@
+import SideBar from "../SideBar/SideBar";
+import Instructions from "../Instructions/Instructions";
 import "./Profile.css";
 
 function Profile() {
   return (
     <section className="profile app__section">
-      <p>This is the Profile section</p>
+      <div className="profile__user-info-container">
+        <img className="profile__avatar" />
+        <h2 className="profile__username">Ryan Bommarito</h2>
+      </div>
+      <div className="profile__content">
+        <SideBar />
+        <Instructions />
+      </div>
     </section>
   );
 }
