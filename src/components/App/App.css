@@ -6,8 +6,7 @@
   font-size: 32px;
   /* For Cards  */
   /* font-family: "Lora", Georgia, "Times New Roman", Times, serif; */
-  font-family: "Victor Mono", "Fira Code", "Source Code Pro", "Courier New",
-    Courier, monospace;
+  font-family: "VictorMono", Courier, monospace;
 }
 
 .app__content {

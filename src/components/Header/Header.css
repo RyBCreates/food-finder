@@ -10,8 +10,7 @@
   align-items: center;
   height: 60px;
   background: linear-gradient(to right, #fff 0%, #f9e83f 20%, #fe4747 100%);
-  font-family: "Victor Mono", "Fira Code", "Source Code Pro", "Courier New",
-    Courier, monospace;
+  font-family: "VictorMono", Courier, monospace;
 }
 
 .header__logo {

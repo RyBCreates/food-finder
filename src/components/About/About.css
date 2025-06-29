@@ -1,0 +1,31 @@
+.about {
+  width: 100%;
+  margin: 40px 80px;
+}
+
+.about__title {
+  margin: 140px 0 0 0;
+  font-weight: 500;
+  font-size: 57px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid black;
+  max-width: 658px;
+}
+
+.about__paragraph {
+  padding-top: 50px;
+  margin: 0;
+  font-size: 26px;
+  max-width: 843px;
+  text-wrap: wrap;
+}
+
+.about__image {
+  position: absolute;
+  right: 80px;
+  top: 200px;
+  width: 405px;
+  height: 405px;
+  background-color: lightblue;
+  border-radius: 50%;
+}
