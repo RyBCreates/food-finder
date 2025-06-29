@@ -4,6 +4,7 @@ import Header from "../Header/Header";
 import Home from "../Home/Home";
 import Recipes from "../Recipes/Recipes";
 import About from "../About/About";
+import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import "./App.css";
 
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/recipes" element={<Recipes />} />
             <Route path="/about" element={<About />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
           <Footer />
         </div>

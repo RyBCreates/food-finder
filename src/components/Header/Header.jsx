@@ -10,11 +10,13 @@ function Header() {
       </Link>
       <div className="header__menu">
         <Navbar />
-        <div className="header__user-info">
-          <p className="header__username">Ryan Bommarito</p>
-          {/* Make avatar an image tag vvv */}
-          <div className="header__avatar"></div>
-        </div>
+        <Link to="/profile" className="header__link">
+          <div className="header__user-info">
+            <p className="header__username">Ryan Bommarito</p>
+            {/* Make avatar an image tag vvv */}
+            <div className="header__avatar"></div>
+          </div>
+        </Link>
       </div>
     </header>
   );
