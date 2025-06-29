@@ -14,6 +14,15 @@
   flex: 1;
 }
 
+.sidebar__link-container {
+  text-decoration: none;
+  color: black;
+}
+
+.sidebar__link-container:last-of-type {
+  margin-top: auto;
+}
+
 .sidebar__link {
   padding-right: 40px;
 }
@@ -21,8 +30,4 @@
 .sidebar__link:hover {
   cursor: pointer;
   color: green;
-}
-
-.sidebar__link_bottom {
-  margin-top: auto;
 }

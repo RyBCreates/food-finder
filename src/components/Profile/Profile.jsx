@@ -1,5 +1,5 @@
+import { Outlet } from "react-router-dom";
 import SideBar from "../SideBar/SideBar";
-import Instructions from "../Instructions/Instructions";
 import "./Profile.css";
 
 function Profile() {
@@ -11,7 +11,7 @@ function Profile() {
       </div>
       <div className="profile__content">
         <SideBar />
-        <Instructions />
+        <Outlet />
       </div>
     </section>
   );
