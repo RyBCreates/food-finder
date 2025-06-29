@@ -1,15 +1,15 @@
+import { Link } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 import "./Header.css";
 
 function Header() {
   return (
     <header className="header">
-      <div className="header__logo"></div>
+      <Link to="/">
+        <div className="header__logo"></div>
+      </Link>
       <div className="header__menu">
-        {/* Make NavBar Component vvv */}
-        <div className="navbar">
-          <p className="navbar__link">Recipes</p>
-          <p className="navbar__link">About</p>
-        </div>
+        <Navbar />
         <div className="header__user-info">
           <p className="header__username">Ryan Bommarito</p>
           {/* Make avatar an image tag vvv */}

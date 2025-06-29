@@ -26,23 +26,6 @@
   justify-content: center;
 }
 
-/* MOVE TO NAVBAR COMPONENT */
-.navbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 26px;
-}
-
-.navbar__link {
-  font-size: 24px;
-}
-
-.navbar__link:hover {
-  cursor: pointer;
-  color: #6ea547;
-}
-
 .header__user-info {
   display: flex;
   justify-content: center;

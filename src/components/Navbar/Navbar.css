@@ -1,0 +1,19 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar__links {
+  list-style: none;
+  display: flex;
+  gap: 26px;
+}
+
+.navbar__link {
+  font-size: 24px;
+}
+
+.navbar__link:hover {
+  cursor: pointer;
+  color: #6ea547;
+}

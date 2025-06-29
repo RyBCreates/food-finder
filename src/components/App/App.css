@@ -13,3 +13,7 @@
 .app__content {
   margin: 0 auto;
 }
+
+.app__section {
+  margin-top: 100px;
+}
