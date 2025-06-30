@@ -1,4 +1,5 @@
 .shopping-list {
+  width: 100vh;
 }
 
 .shopping-list__title {
@@ -25,6 +26,10 @@
 .shopping-list__checkbox {
   width: 30px;
   height: 30px;
+}
+
+.shopping-list__checkbox:hover {
+  cursor: pointer;
 }
 
 .shopping-list__ingredient-name {
