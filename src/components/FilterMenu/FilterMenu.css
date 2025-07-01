@@ -1,0 +1,25 @@
+.filter {
+  box-sizing: content-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+
+.filter:hover {
+  opacity: 0.6;
+}
+
+.filter__button {
+  background-color: transparent;
+  border: none;
+}
+
+.filter__button:hover {
+  cursor: pointer;
+}
+
+.filter__icon {
+  width: 36px;
+  height: 18px;
+}
