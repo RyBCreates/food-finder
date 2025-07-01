@@ -1,3 +1,4 @@
+import Burger from "../../assets/recipe-images/chipotle-burger.jpeg";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import "./Recipes.css";
 
@@ -8,7 +9,7 @@ function Recipes() {
       <ul className="recipes__card-list">
         <RecipeCard />
         <li className="card">
-          <img className="card__image" />
+          <img className="card__image" src={Burger} alt="Chipotle Burger" />
           <div className="card__info">
             <h3 className="card__title">CHIPOTLE BURGER</h3>
             <div className="card__recipe-stats">

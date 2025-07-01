@@ -23,6 +23,10 @@
   margin: 0 0 0 80px;
 }
 
+.shopping-list__ingredient:last-of-type {
+  margin-bottom: 30px;
+}
+
 .shopping-list__checkbox {
   width: 30px;
   height: 30px;

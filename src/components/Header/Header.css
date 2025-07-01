@@ -73,12 +73,11 @@
 
 .header__avatar-wrapper {
   border: 1px solid black;
-
   width: 40px;
   height: 40px;
   border-radius: 50%;
   overflow: hidden;
-  background-color: teal;
+  background-color: #1cb6d1;
   display: flex;
   justify-content: center;
   align-items: center;

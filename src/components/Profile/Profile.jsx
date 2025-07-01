@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import defaultAvatar from "../../assets/default-avatar.svg";
 import SideBar from "../SideBar/SideBar";
 import "./Profile.css";
 
@@ -6,7 +7,14 @@ function Profile() {
   return (
     <section className="profile app__section">
       <div className="profile__user-info-container">
-        <img className="profile__avatar" />
+        <div className="profile__avatar-wrapper">
+          {" "}
+          <img
+            className="profile__avatar"
+            src={defaultAvatar}
+            alt="default avatar"
+          />
+        </div>
         <h2 className="profile__username">Ryan Bommarito</h2>
       </div>
       <div className="profile__content">

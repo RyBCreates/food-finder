@@ -1,9 +1,11 @@
+import Fettucine from "../../assets/recipe-images/fettucine-alfredo.jpeg";
+
 import "./RecipeCard.css";
 
 function RecipeCard() {
   return (
     <li className="card">
-      <img className="card__image" />
+      <img className="card__image" src={Fettucine} alt="Fettucine Alfredo" />
       <div className="card__info">
         <h3 className="card__title">FETTUCINE ALFREDO</h3>
         <div className="card__recipe-stats">

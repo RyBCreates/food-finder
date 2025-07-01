@@ -1,3 +1,4 @@
+import RyanProfile from "../../assets/Ryan-Profile.jpg";
 import "./About.css";
 
 function About() {
@@ -15,7 +16,7 @@ function About() {
           busy schedule or just unsure of what to cook, my goal is to make meal
           planning easier, smarter, and more enjoyable!
         </p>
-        <img className="about__image" alt="" src="" />
+        <img className="about__image" alt="Ryan Bommarito" src={RyanProfile} />
       </div>
     </section>
   );
