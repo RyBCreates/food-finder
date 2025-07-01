@@ -39,6 +39,7 @@
   font-size: 32px;
   padding: 8px 15px;
   border-radius: 10px;
+  border: none;
 }
 
 .profile-settings__submit-button:hover {
