@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import defaultAvatar from "../../assets/default-avatar.svg";
 import Navbar from "../Navbar/Navbar";
 import "./Header.css";
 
@@ -13,8 +14,13 @@ function Header() {
         <Link to="/profile" className="header__link">
           <div className="header__user-info">
             <p className="header__username">Ryan Bommarito</p>
-            {/* Make avatar an image tag vvv */}
-            <div className="header__avatar"></div>
+            <div className="header__avatar-wrapper">
+              <img
+                className="header__avatar"
+                src={defaultAvatar}
+                alt="default avatar"
+              />
+            </div>
           </div>
         </Link>
       </div>

@@ -33,6 +33,7 @@
 .header__user-info {
   position: relative;
   display: flex;
+  box-sizing: border-box;
   justify-content: center;
   align-items: center;
   background: white;
@@ -50,8 +51,9 @@
   background: #6ea547;
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1;
+  left: -1;
+  right: -1;
   width: 100%;
   height: 100%;
   border-radius: 10px;
@@ -72,10 +74,34 @@
   padding: 0 12px 0 20px;
 }
 
-.header__avatar {
+/* .header__avatar {
+  box-sizing: border-box;
   border: 1px solid black;
-  background: teal;
+  background-color: #1cb6d1;
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  object-fit: contain;
+  display: block;
+  overflow: hidden;
+} */
+
+.header__avatar-wrapper {
+  border: 1px solid black;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: teal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: translateY(3px);
 }
