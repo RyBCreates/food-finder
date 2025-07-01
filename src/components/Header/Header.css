@@ -71,18 +71,6 @@
   padding: 0 12px 0 20px;
 }
 
-/* .header__avatar {
-  box-sizing: border-box;
-  border: 1px solid black;
-  background-color: #1cb6d1;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: contain;
-  display: block;
-  overflow: hidden;
-} */
-
 .header__avatar-wrapper {
   border: 1px solid black;
 

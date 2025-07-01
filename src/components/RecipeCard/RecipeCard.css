@@ -1,0 +1,52 @@
+.card {
+  border: 1px solid black;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  background: #f1f1f1;
+  font-family: "Lora", Georgia, "Times New Roman", Times, serif;
+  border-radius: 10px;
+  box-shadow: 5px 20px 25px 0;
+  padding-right: 24px;
+}
+
+.card__image {
+  margin-right: 25px;
+  height: 247px;
+  width: 300px;
+  background-color: red;
+  border-radius: 10px 0 0 10px;
+  object-fit: cover;
+}
+
+.card__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card__title {
+  padding: 20px 0 20px 0;
+  font-weight: 500;
+  margin: 0;
+  font-size: 64px;
+  line-height: 1.4;
+}
+
+.card__recipe-stats {
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card__stat {
+  font-size: 24px;
+  margin: 0;
+  font-weight: 500;
+}
+
+.card__stat_bold {
+  font-weight: 700;
+}
