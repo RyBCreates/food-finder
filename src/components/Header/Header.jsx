@@ -11,16 +11,14 @@ function Header() {
       </Link>
       <div className="header__menu">
         <Navbar />
-        <Link to="/profile" className="header__link">
-          <div className="header__user-info">
-            <p className="header__username">Ryan Bommarito</p>
-            <div className="header__avatar-wrapper">
-              <img
-                className="header__avatar"
-                src={defaultAvatar}
-                alt="default avatar"
-              />
-            </div>
+        <Link className="header__user-info" to="/profile">
+          <p className="header__username">Ryan Bommarito</p>
+          <div className="header__avatar-wrapper">
+            <img
+              className="header__avatar"
+              src={defaultAvatar}
+              alt="default avatar"
+            />
           </div>
         </Link>
       </div>
