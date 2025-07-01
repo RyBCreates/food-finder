@@ -5,6 +5,7 @@
 .profile-settings__title {
   padding: 30px 0 40px 60px;
   margin: 0;
+  font-size: 32px;
 }
 
 .profile-settings__form {

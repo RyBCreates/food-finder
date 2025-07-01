@@ -5,6 +5,7 @@
 .shopping-list__title {
   padding: 30px 0 40px 60px;
   margin: 0;
+  font-size: 32px;
 }
 
 .shopping-list__list {

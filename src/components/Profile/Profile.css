@@ -11,8 +11,8 @@
 
 .profile__avatar-wrapper {
   border: 4px solid black;
-  width: 150px;
-  height: 150px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   overflow: hidden;
   background-color: #1cb6d1;
@@ -29,7 +29,7 @@
 }
 
 .profile__username {
-  font-size: 64px;
+  font-size: 36px;
   margin: 0;
 }
 

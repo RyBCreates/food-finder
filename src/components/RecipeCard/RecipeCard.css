@@ -12,6 +12,11 @@
   height: 230px;
 }
 
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.01);
+}
+
 .card__image {
   margin-right: 25px;
   border-radius: 10px 0 0 10px;

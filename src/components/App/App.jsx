@@ -30,7 +30,7 @@ function App() {
               <Route path="profile-settings" element={<ProfileSettings />} />
             </Route>
           </Routes>
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </div>
     </HashRouter>
