@@ -11,9 +11,11 @@ function FavoriteRecipes() {
         <FilterMenu />
       </div>
       <ul className="favorite-recipes__list">
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
+        {/* <RecipeCard
+          key={recipe._id}
+          recipe={recipe}
+          onCardClick={onCardClick}
+        /> */}
       </ul>
     </section>
   );

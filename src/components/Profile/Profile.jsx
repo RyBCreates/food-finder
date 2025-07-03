@@ -8,7 +8,6 @@ function Profile() {
     <section className="profile app__section">
       <div className="profile__user-info-container">
         <div className="profile__avatar-wrapper">
-          {" "}
           <img
             className="profile__avatar"
             src={defaultAvatar}

@@ -2,13 +2,21 @@ import Burger from "../../assets/recipe-images/chipotle-burger.jpeg";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import "./Recipes.css";
 
-function Recipes() {
+function Recipes({ onCardClick, recipes }) {
   return (
     <section className="recipes app__section">
       <h2 className="recipes__title">Recipes On The Menu Today</h2>
       <ul className="recipes__card-list">
-        <RecipeCard />
-        <li className="card">
+        {recipes.map((recipe) => {
+          return (
+            <RecipeCard
+              key={recipe._id}
+              recipe={recipe}
+              onCardClick={onCardClick}
+            />
+          );
+        })}
+        {/* <li className="card">
           <img className="card__image" src={Burger} alt="Chipotle Burger" />
           <div className="card__info">
             <h3 className="card__title">CHIPOTLE BURGER</h3>
@@ -25,7 +33,7 @@ function Recipes() {
               </p>
             </div>
           </div>
-        </li>
+        </li> */}
       </ul>
     </section>
   );
