@@ -1,19 +1,23 @@
-import Fettucine from "../../assets/recipe-images/fettucine-alfredo.jpeg";
-
 import "./RecipeCard.css";
 
 function RecipeCard({ recipe, onCardClick }) {
   return (
     <li className="card" onClick={() => onCardClick(recipe)}>
-      <img className="card__image" src={Fettucine} alt="Fettucine Alfredo" />
+      <img className="card__image" src={recipe.image} alt={recipe.title} />
       <div className="card__info">
-        <h3 className="card__title">{recipe.name}</h3>
+        <h3 className="card__title">{recipe.title}</h3>
         <div className="card__recipe-stats">
           <p className="card__stat">
-            Prep Time: <span className="card__stat_bold">20 Min</span>
+            Prep Time:
+            <span className="card__stat_bold">
+              {` ${recipe.preparationMinutes}`} Min
+            </span>
           </p>
           <p className="card__stat">
-            Cost Per Serving ~ <span className="card__stat_bold">$5.00</span>
+            Cost Per Serving ~{" "}
+            <span className="card__stat_bold">
+              ${`${recipe.pricePerServing}`}
+            </span>
           </p>
           <p className="card__stat">
             Rating - <span className="card__stat_bold">5.0</span>

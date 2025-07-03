@@ -13,7 +13,24 @@ function IngredientsModal({ activeModal, closeModal, card }) {
         >
           <img className="modal__close-icon" src={Close} alt="close icon" />
         </button>
-        <h2 className="modal__recipe-title">{card?.name || "Recipe"}</h2>
+        <h2 className="modal__recipe-title">{card?.title || "Recipe"}</h2>
+        <div className="modal__recipe-stats">
+          <p className="modal__recipe-stat">
+            Prep Time:{" "}
+            <span className="modal__recipe-stat_bold">
+              {card?.preparationMinutes} Min
+            </span>
+          </p>
+          <p className="modal__recipe-stat">
+            Cost Per Serving ~{" "}
+            <span className="modal__recipe-stat_bold">
+              ${card?.pricePerServing}
+            </span>
+          </p>
+          <p className="modal__recipe-stat">
+            Rating - <span className="modal__recipe-stat_bold">5.0</span>
+          </p>
+        </div>
       </div>
     </div>
   );
