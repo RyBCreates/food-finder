@@ -49,4 +49,29 @@ export const mockRecipes = [
       },
     ],
   },
+  {
+    id: 3,
+    title: "Ramen",
+    image: "https://img.spoonacular.com/recipes/633428-556x370.jpg",
+    preparationMinutes: 30,
+    pricePerServing: 9.0,
+    extendedIngredients: [
+      {
+        name: "butter",
+        id: 1001,
+        measures: {
+          metric: {
+            amount: 1.0,
+            unitLong: "Tbsp",
+            unitShort: "Tbsp",
+          },
+          us: {
+            amount: 1.0,
+            unitLong: "Tbsp",
+            unitShort: "Tbsp",
+          },
+        },
+      },
+    ],
+  },
 ];
