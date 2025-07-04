@@ -3,7 +3,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import "./FavoriteRecipes.css";
 
-function FavoriteRecipes() {
+function FavoriteRecipes({ recipes, onCardClick }) {
   return (
     <section className="favorite-recipes">
       <div className="favorite-recipes__filters">
@@ -11,11 +11,15 @@ function FavoriteRecipes() {
         <FilterMenu />
       </div>
       <ul className="favorite-recipes__list">
-        {/* <RecipeCard
-          key={recipe._id}
-          recipe={recipe}
-          onCardClick={onCardClick}
-        /> */}
+        {recipes.map((recipe) => {
+          return (
+            <RecipeCard
+              key={recipe.id}
+              recipe={recipe}
+              onCardClick={onCardClick}
+            />
+          );
+        })}
       </ul>
     </section>
   );

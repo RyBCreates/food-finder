@@ -72,7 +72,15 @@ function App() {
             <Route path="/profile" element={<Profile />}>
               <Route index element={<Instructions />} />
               <Route path="instructions" element={<Instructions />} />
-              <Route path="favorite-recipes" element={<FavoriteRecipes />} />
+              <Route
+                path="favorite-recipes"
+                element={
+                  <FavoriteRecipes
+                    recipes={recipes}
+                    onCardClick={handleCardClick}
+                  />
+                }
+              />
               <Route path="shopping-list" element={<ShoppingList />} />
               <Route path="profile-settings" element={<ProfileSettings />} />
             </Route>
