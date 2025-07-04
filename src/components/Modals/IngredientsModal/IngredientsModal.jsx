@@ -1,7 +1,7 @@
 import { formatPrice } from "../../../utils/formatPrice";
 import Close from "../../../assets/close-button.svg";
-import Plus from "../../../assets/plus-icon.svg";
 import RightArrow from "../../../assets/right-arrow.svg";
+import Ingredient from "../../Ingredient/Ingredient";
 import "./IngredientsModal.css";
 import "../Modals.css";
 
@@ -46,23 +46,9 @@ function IngredientsModal({
           </p>
         </div>
         <ol className="modal__ingredients-list">
-          <li className="modal__ingredients-item">
-            <button className="modal__plus-button">
-              <img className="modal__plus-icon" src={Plus} alt="plus icon" />
-            </button>
-            <p className="modal__ingredient">
-              <span className="modal__ingredient_amount">1 </span>Box of Noodles
-            </p>
-          </li>
-          <li className="modal__ingredients-item">
-            <button className="modal__plus-button">
-              <img className="modal__plus-icon" src={Plus} alt="plus icon" />
-            </button>
-            <p className="modal__ingredient">
-              <span className="modal__ingredient_amount">1 </span>Jar of Alfredo
-              Sauce
-            </p>
-          </li>
+          {card?.extendedIngredients?.map((ingredient) => (
+            <Ingredient key={ingredient.id} ingredient={ingredient} />
+          ))}
         </ol>
         <button
           className="modal__switch-button modal__switch-button_ingredients"
