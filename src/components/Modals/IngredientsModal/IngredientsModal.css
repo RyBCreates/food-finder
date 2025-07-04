@@ -49,3 +49,6 @@
 .modal__ingredient_amount {
   font-weight: 700;
 }
+.modal__switch-button_ingredients {
+  margin-left: auto;
+}

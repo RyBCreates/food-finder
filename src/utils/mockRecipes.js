@@ -245,7 +245,7 @@ export const mockRecipes = [
   },
   {
     id: 635059,
-    image: "https://img.spoonacular.com/recipes/635059-556x370.",
+    image: "https://img.spoonacular.com/recipes/635059-556x370.jpg",
     title: "Black Bean and Veggie Burgers with Corn Salsa",
     readyInMinutes: 45,
     pricePerServing: 77.66,

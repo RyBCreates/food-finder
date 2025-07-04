@@ -85,19 +85,12 @@
   border: none;
   background-color: transparent;
   font-weight: 700;
+  padding-top: 45px;
 }
 
 .modal__switch-button:hover {
   cursor: pointer;
   opacity: 0.6;
-}
-
-.modal__switch-button_ingredients {
-  margin-left: auto;
-}
-
-.modal__switch-button_instructions {
-  margin-right: auto;
 }
 
 .modal__arrow {

@@ -1,0 +1,32 @@
+.modal__instructions-title {
+  margin: 0;
+}
+
+.modal__instructions-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  padding-left: 45px;
+}
+
+.modal__instructions-item {
+  font-size: 18px;
+}
+
+/* .modal__instructions-item:last-child {
+  margin-bottom: 0;
+} */
+
+.modal__instructions-step {
+  margin: 10px 0 0;
+}
+
+/* .modal__instructions-step:last-of-type {
+  margin-bottom: 0;
+} */
+
+.modal__switch-button_instructions {
+  margin-right: auto;
+}

@@ -1,3 +1,4 @@
+import { formatPrice } from "../../../utils/formatPrice";
 import Close from "../../../assets/close-button.svg";
 import LeftArrow from "../../../assets/left-arrow.svg";
 import "./InstructionsModal.css";
@@ -32,7 +33,7 @@ function InstructionsModal({
           <p className="modal__recipe-stat">
             Cost Per Serving ~{" "}
             <span className="modal__recipe-stat_bold">
-              ${card?.pricePerServing}
+              ${formatPrice(card?.pricePerServing)}
             </span>
           </p>
           <p className="modal__recipe-stat">
@@ -44,17 +45,17 @@ function InstructionsModal({
         </div>
         <ol className="modal__instructions-list">
           <li className="modal__instructions-item">
-            <p className="modal__step">Boil Water in a pot</p>
+            <p className="modal__instructions-step">Boil Water in a pot</p>
           </li>
           <li className="modal__instructions-item">
-            <p className="modal__step">Put Noodles in pot</p>
+            <p className="modal__instructions-step">Put Noodles in pot</p>
           </li>
           <li className="modal__instructions-item">
-            <p className="modal__step">Stir Noodles in pot</p>
+            <p className="modal__instructions-step">Stir Noodles in pot</p>
           </li>
           {/* Should Be at the end of EVERY Recipe */}
           <li className="modal__instructions-item">
-            <p className="modal__step">Serve and Enjoy!</p>
+            <p className="modal__instructions-step">Serve and Enjoy!</p>
           </li>
         </ol>
         <button
