@@ -1,11 +1,11 @@
-.instructions {
+.tutorial {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
 
-.instructions__title {
+.tutorial__title {
   padding: 0 140px;
   font-size: 36px;
   margin: 0;

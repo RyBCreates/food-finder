@@ -7,7 +7,7 @@ import Home from "../Home/Home";
 import Recipes from "../Recipes/Recipes";
 import About from "../About/About";
 import Profile from "../Profile/Profile";
-import Instructions from "../Instructions/Instructions";
+import Tutorial from "../Tutorial/Tutorial";
 import FavoriteRecipes from "../FavoriteRecipes/FavoriteRecipes";
 import ShoppingList from "../ShoppingList/ShoppingList";
 import ProfileSettings from "../ProfileSettings/ProfileSettings";
@@ -20,6 +20,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState(null);
   const [recipes, setRecipes] = useState([]);
+  const [shoppingList, setShoppingList] = useState([]);
 
   // Open Ingredients Modal
   const handleCardClick = (card) => {
@@ -70,8 +71,8 @@ function App() {
             />
             <Route path="/about" element={<About />} />
             <Route path="/profile" element={<Profile />}>
-              <Route index element={<Instructions />} />
-              <Route path="instructions" element={<Instructions />} />
+              <Route index element={<Tutorial />} />
+              <Route path="tutorial" element={<Tutorial />} />
               <Route
                 path="favorite-recipes"
                 element={
