@@ -55,6 +55,12 @@
   font-weight: bold;
   background: linear-gradient(to right, #fff 0%, #f9e83f 75%, #fe4747 100%);
   z-index: 1;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
 }
 
 .home__button::after {

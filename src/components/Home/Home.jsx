@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Home.css";
 
 function Home() {
@@ -10,7 +11,9 @@ function Home() {
           <p className="home__subtext">ORDER THE INGREDIENTS</p>
           <p className="home__subtext">ENJOY!</p>
         </div>
-        <button className="home__button">Get Started</button>
+        <Link to="/recipes" className="home__button">
+          Get Started
+        </Link>
       </div>
     </section>
   );
