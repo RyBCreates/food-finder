@@ -13,6 +13,7 @@ import ShoppingList from "../ShoppingList/ShoppingList";
 import ProfileSettings from "../ProfileSettings/ProfileSettings";
 import Footer from "../Footer/Footer";
 import IngredientsModal from "../Modals/IngredientsModal/IngredientsModal";
+import InstructionsModal from "../Modals/InstructionsModal/InstructionsModal";
 import "./App.css";
 
 function App() {
@@ -20,10 +21,17 @@ function App() {
   const [selectedCard, setSelectedCard] = useState(null);
   const [recipes, setRecipes] = useState([]);
 
-  // Open modals
+  // Open Ingredients Modal
   const handleCardClick = (card) => {
     setActiveModal("ingredients");
     setSelectedCard(card);
+  };
+
+  // Switch to and from Instructions Modal and Ingredients
+  const handleSwitchClick = () => {
+    activeModal === "ingredients"
+      ? setActiveModal("instructions")
+      : setActiveModal("ingredients");
   };
 
   // Close Modals(global)
@@ -75,6 +83,13 @@ function App() {
           activeModal={activeModal}
           closeModal={closeModal}
           card={selectedCard}
+          handleSwitchClick={handleSwitchClick}
+        />
+        <InstructionsModal
+          activeModal={activeModal}
+          closeModal={closeModal}
+          card={selectedCard}
+          handleSwitchClick={handleSwitchClick}
         />
       </div>
     </HashRouter>

@@ -4,7 +4,12 @@ import RightArrow from "../../../assets/right-arrow.svg";
 import "./IngredientsModal.css";
 import "../Modals.css";
 
-function IngredientsModal({ activeModal, closeModal, card }) {
+function IngredientsModal({
+  activeModal,
+  closeModal,
+  card,
+  handleSwitchClick,
+}) {
   return (
     <div className={`modal ${activeModal === "ingredients" && "modal_opened"}`}>
       <div className="modal__content">
@@ -20,7 +25,7 @@ function IngredientsModal({ activeModal, closeModal, card }) {
           <p className="modal__recipe-stat">
             Prep Time:{" "}
             <span className="modal__recipe-stat_bold">
-              {card?.preparationMinutes} Min
+              {card?.readyInMinutes} Min
             </span>
           </p>
           <p className="modal__recipe-stat">
@@ -58,7 +63,11 @@ function IngredientsModal({ activeModal, closeModal, card }) {
             </p>
           </li>
         </ol>
-        <button className="modal__switch-button_ingredients" type="button">
+        <button
+          className="modal__switch-button modal__switch-button_ingredients"
+          type="button"
+          onClick={handleSwitchClick}
+        >
           Checkout the Recipe
           <img
             className="modal__arrow_right"

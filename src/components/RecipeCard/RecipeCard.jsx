@@ -10,7 +10,7 @@ function RecipeCard({ recipe, onCardClick }) {
           <p className="card__stat">
             Prep Time:
             <span className="card__stat_bold">
-              {` ${recipe.preparationMinutes}`} Min
+              {` ${recipe.readyInMinutes}`} Min
             </span>
           </p>
           <p className="card__stat">
