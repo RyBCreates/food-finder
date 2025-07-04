@@ -1,6 +1,7 @@
 import { formatPrice } from "../../../utils/formatPrice";
 import Close from "../../../assets/close-button.svg";
 import LeftArrow from "../../../assets/left-arrow.svg";
+import Instruction from "../../Instruction/Instruction";
 import "./InstructionsModal.css";
 import "../Modals.css";
 
@@ -44,19 +45,21 @@ function InstructionsModal({
           <h3 className="modal__instructions-title">Instructions</h3>
         </div>
         <ol className="modal__instructions-list">
-          <li className="modal__instructions-item">
-            <p className="modal__instructions-step">Boil Water in a pot</p>
-          </li>
-          <li className="modal__instructions-item">
-            <p className="modal__instructions-step">Put Noodles in pot</p>
-          </li>
-          <li className="modal__instructions-item">
-            <p className="modal__instructions-step">Stir Noodles in pot</p>
-          </li>
-          {/* Should Be at the end of EVERY Recipe */}
-          <li className="modal__instructions-item">
-            <p className="modal__instructions-step">Serve and Enjoy!</p>
-          </li>
+          {card?.analyzedInstructions?.[0]?.steps?.length > 0 ? (
+            card.analyzedInstructions[0].steps.map((step) => (
+              <>
+                <Instruction key={step.number} instruction={step} />
+                <li className="modal__instructions-item">
+                  <p className="modal__instructions-step">Serve and Enjoy!</p>
+                </li>
+              </>
+            ))
+          ) : (
+            <p className="modal__instructions-none">
+              There are currently no steps listed for this recipe, we are in the
+              kitchen cooking something up for this!
+            </p>
+          )}
         </ol>
         <button
           className="modal__switch-button modal__switch-button_instructions"

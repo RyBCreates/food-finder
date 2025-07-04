@@ -27,6 +27,13 @@
   margin-bottom: 0;
 } */
 
+.modal__instructions-none {
+  margin: 0;
+  padding: 20px 45px 0 0;
+  white-space: wrap;
+  line-height: 1.5;
+}
+
 .modal__switch-button_instructions {
   margin-right: auto;
 }
