@@ -1,4 +1,6 @@
 import Close from "../../../assets/close-button.svg";
+import Plus from "../../../assets/plus-icon.svg";
+import RightArrow from "../../../assets/right-arrow.svg";
 import "./IngredientsModal.css";
 import "../Modals.css";
 
@@ -31,6 +33,39 @@ function IngredientsModal({ activeModal, closeModal, card }) {
             Rating - <span className="modal__recipe-stat_bold">5.0</span>
           </p>
         </div>
+        <div className="modal__ingredients-header">
+          <h3 className="modal__ingredients-title">Ingredients</h3>
+          <p className="modal__ingredients-description">
+            (Click the plus icon to add ingredients to your shopping list)
+          </p>
+        </div>
+        <ol className="modal__ingredients-list">
+          <li className="modal__ingredients-item">
+            <button className="modal__plus-button">
+              <img className="modal__plus-icon" src={Plus} alt="plus icon" />
+            </button>
+            <p className="modal__ingredient">
+              <span className="modal__ingredient_amount">1 </span>Box of Noodles
+            </p>
+          </li>
+          <li className="modal__ingredients-item">
+            <button className="modal__plus-button">
+              <img className="modal__plus-icon" src={Plus} alt="plus icon" />
+            </button>
+            <p className="modal__ingredient">
+              <span className="modal__ingredient_amount">1 </span>Jar of Alfredo
+              Sauce
+            </p>
+          </li>
+        </ol>
+        <button className="modal__switch-button_ingredients" type="button">
+          Checkout the Recipe
+          <img
+            className="modal__arrow_right"
+            src={RightArrow}
+            alt="Right Arrow"
+          />
+        </button>
       </div>
     </div>
   );
