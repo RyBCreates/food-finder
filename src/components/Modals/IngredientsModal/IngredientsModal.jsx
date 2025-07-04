@@ -1,3 +1,4 @@
+import { formatPrice } from "../../../utils/formatPrice";
 import Close from "../../../assets/close-button.svg";
 import Plus from "../../../assets/plus-icon.svg";
 import RightArrow from "../../../assets/right-arrow.svg";
@@ -31,7 +32,7 @@ function IngredientsModal({
           <p className="modal__recipe-stat">
             Cost Per Serving ~{" "}
             <span className="modal__recipe-stat_bold">
-              ${card?.pricePerServing}
+              ${formatPrice(card?.pricePerServing)}
             </span>
           </p>
           <p className="modal__recipe-stat">

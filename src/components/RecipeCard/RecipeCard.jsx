@@ -1,3 +1,4 @@
+import { formatPrice } from "../../utils/formatPrice";
 import "./RecipeCard.css";
 
 function RecipeCard({ recipe, onCardClick }) {
@@ -16,7 +17,7 @@ function RecipeCard({ recipe, onCardClick }) {
           <p className="card__stat">
             Cost Per Serving ~{" "}
             <span className="card__stat_bold">
-              ${`${recipe.pricePerServing}`}
+              ${`${formatPrice(recipe.pricePerServing)}`}
             </span>
           </p>
           <p className="card__stat">

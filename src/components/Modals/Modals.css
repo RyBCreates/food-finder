@@ -77,58 +77,6 @@
   font-weight: 700;
 }
 
-.modal__ingredients-header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 17px;
-}
-
-.modal__ingredients-title {
-  margin: 0;
-  font-size: 26px;
-}
-
-.modal__ingredients-description {
-  font-size: 12px;
-  white-space: wrap;
-  margin: 0;
-}
-
-/* MAYBE - Use Grid but go down column of 5? first THEN create a 2nd Column */
-.modal__ingredients-list {
-  padding: 0;
-}
-
-.modal__ingredients-item {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.modal__plus-button {
-  border: none;
-  background-color: transparent;
-}
-
-.modal__plus-button:hover {
-  cursor: pointer;
-}
-
-.modal__plus-icon {
-  width: 14px;
-  height: 14px;
-}
-
-.modal__ingredient {
-  font-size: 18px;
-  margin: 0;
-}
-
-.modal__ingredient_amount {
-  font-weight: 700;
-}
-
 .modal__switch-button {
   display: flex;
   align-items: center;
@@ -148,7 +96,7 @@
   margin-left: auto;
 }
 
-.modal__switch-button_ingredients {
+.modal__switch-button_instructions {
   margin-right: auto;
 }
 
