@@ -10,6 +10,7 @@ function IngredientsModal({
   closeModal,
   card,
   handleSwitchClick,
+  handleAddIngredientClick,
 }) {
   return (
     <div className={`modal ${activeModal === "ingredients" && "modal_opened"}`}>
@@ -47,7 +48,11 @@ function IngredientsModal({
         </div>
         <ol className="modal__ingredients-list">
           {card?.extendedIngredients?.map((ingredient) => (
-            <Ingredient key={ingredient.id} ingredient={ingredient} />
+            <Ingredient
+              key={ingredient.id}
+              ingredient={ingredient}
+              handleAddIngredientClick={handleAddIngredientClick}
+            />
           ))}
         </ol>
         <button

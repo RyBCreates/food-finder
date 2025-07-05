@@ -2,10 +2,18 @@ import Plus from "../../assets/plus-icon.svg";
 
 import "./Ingredient.css";
 
-function Ingredient({ ingredient }) {
+function Ingredient({ ingredient, handleAddIngredientClick }) {
   return (
     <li className="ingredient">
-      <button className="modal__plus-button">
+      <button
+        className="modal__plus-button"
+        onClick={() =>
+          handleAddIngredientClick(
+            ingredient.name,
+            `${ingredient.amount} ${ingredient.unit}`
+          )
+        }
+      >
         <img className="modal__plus-icon" src={Plus} alt="plus icon" />
       </button>
       {/* Change this to use {ingredient.original} */}

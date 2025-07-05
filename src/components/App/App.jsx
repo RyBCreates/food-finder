@@ -76,6 +76,11 @@ function App() {
       });
   }, []);
 
+  const handleAddIngredientClick = (name, amount) => {
+    const newIngredient = { name, amount };
+    setShoppingList([newIngredient, ...shoppingList]);
+  };
+
   return (
     <HashRouter>
       <div className="app">
@@ -113,6 +118,7 @@ function App() {
           closeModal={closeModal}
           card={selectedCard}
           handleSwitchClick={handleSwitchClick}
+          handleAddIngredientClick={handleAddIngredientClick}
         />
         <InstructionsModal
           activeModal={activeModal}

@@ -9,6 +9,8 @@
   align-items: flex-start;
   margin: 0;
   padding-left: 45px;
+  max-height: 400px;
+  overflow: scroll;
 }
 
 .modal__instructions-none {
