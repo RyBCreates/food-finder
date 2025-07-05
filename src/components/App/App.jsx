@@ -40,6 +40,26 @@ function App() {
     setActiveModal("");
   };
 
+  useEffect(() => {
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") closeModal();
+    };
+
+    const handleClickOutside = (e) => {
+      if (e.target.classList.contains("modal")) {
+        closeModal();
+      }
+    };
+
+    window.addEventListener("keydown", handleEscClose);
+    window.addEventListener("click", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("keydown", handleEscClose);
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   // MOCK GET RECIPES FUNCTION
   const getRecipes = () => {
     return Promise.resolve(mockRecipes);
