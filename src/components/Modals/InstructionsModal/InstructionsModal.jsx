@@ -47,12 +47,7 @@ function InstructionsModal({
         <ol className="modal__instructions-list">
           {card?.analyzedInstructions?.[0]?.steps?.length > 0 ? (
             card.analyzedInstructions[0].steps.map((step) => (
-              <>
-                <Instruction key={step.number} instruction={step} />
-                <li className="modal__instructions-item">
-                  <p className="modal__instructions-step">Serve and Enjoy!</p>
-                </li>
-              </>
+              <Instruction key={step.number} instruction={step} />
             ))
           ) : (
             <p className="modal__instructions-none">
@@ -60,6 +55,11 @@ function InstructionsModal({
               kitchen cooking something up for this!
             </p>
           )}
+          <li className="modal__instructions-item instruction__item">
+            <p className="modal__instructions-step instruction__step">
+              Serve and Enjoy!
+            </p>
+          </li>
         </ol>
         <button
           className="modal__switch-button modal__switch-button_instructions"

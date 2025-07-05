@@ -16,9 +16,13 @@
   margin: 0;
 }
 
-/* MAYBE - Use Grid but go down column of 5? first THEN create a 2nd Column */
 .modal__ingredients-list {
-  padding: 0;
+  padding: 20px 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 8px;
+  margin: 0;
+  list-style: none;
 }
 
 .modal__plus-button {
