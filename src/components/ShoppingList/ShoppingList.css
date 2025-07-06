@@ -2,10 +2,38 @@
   width: 100vh;
 }
 
-.shopping-list__title {
+.shopping-list__header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   padding: 30px 0 40px 60px;
+}
+
+.shopping-list__title {
   margin: 0;
   font-size: 32px;
+  padding-right: 40px;
+}
+
+.shopping-list__button {
+  box-sizing: border-box;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+
+.shopping-list__button_add {
+  color: green;
+}
+
+.shopping-list__button_clear {
+  color: red;
+  margin-left: 80px;
+}
+
+.shopping-list__button:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .shopping-list__list {
