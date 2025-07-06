@@ -76,8 +76,15 @@ function App() {
       });
   }, []);
 
+  // Add Ingredients from Ingredient Modal to Shopping List
   const handleAddIngredientClick = (name, amount) => {
     const newIngredient = { name, amount };
+    const alreadyExists = shoppingList.some((item) => {
+      return (
+        item.name.toLowerCase() === name.toLowerCase() && item.amount === amount
+      );
+    });
+    if (alreadyExists) return;
     setShoppingList([newIngredient, ...shoppingList]);
   };
 
