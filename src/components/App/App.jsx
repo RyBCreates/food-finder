@@ -107,7 +107,10 @@ function App() {
                   />
                 }
               />
-              <Route path="shopping-list" element={<ShoppingList />} />
+              <Route
+                path="shopping-list"
+                element={<ShoppingList shoppingList={shoppingList} />}
+              />
               <Route path="profile-settings" element={<ProfileSettings />} />
             </Route>
           </Routes>

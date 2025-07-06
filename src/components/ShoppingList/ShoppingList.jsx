@@ -1,6 +1,6 @@
 import "./ShoppingList.css";
 
-function ShoppingList() {
+function ShoppingList({ shoppingList }) {
   return (
     <section className="shopping-list">
       <div className="shopping-list__header">
@@ -13,10 +13,15 @@ function ShoppingList() {
         </button>
       </div>
       <ul className="shopping-list__list">
-        <li className="shopping-list__ingredient">
-          <input className="shopping-list__checkbox" type="checkbox"></input>
-          <p className="shopping-list__ingredient-name">Noodles</p>
-        </li>
+        {shoppingList.map((item, index) => (
+          <li className="shopping-list__ingredient" key={index}>
+            <input className="shopping-list__checkbox" type="checkbox"></input>
+            <p className="shopping-list__ingredient-name">
+              {item.amount} {item.name}
+            </p>
+          </li>
+        ))}
+
         <li className="shopping-list__ingredient">
           <input className="shopping-list__checkbox" type="checkbox"></input>
           <p className="shopping-list__ingredient-name">Alfredo Sauce</p>
