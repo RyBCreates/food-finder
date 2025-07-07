@@ -1,6 +1,6 @@
 import "./ShoppingList.css";
 
-function ShoppingList({ shoppingList }) {
+function ShoppingList({ shoppingList, handleClearListClick }) {
   return (
     <section className="shopping-list">
       <div className="shopping-list__header">
@@ -21,19 +21,11 @@ function ShoppingList({ shoppingList }) {
             </p>
           </li>
         ))}
-
-        <li className="shopping-list__ingredient">
-          <input className="shopping-list__checkbox" type="checkbox"></input>
-          <p className="shopping-list__ingredient-name">Alfredo Sauce</p>
-        </li>
-        <li className="shopping-list__ingredient">
-          <input className="shopping-list__checkbox" type="checkbox"></input>
-          <p className="shopping-list__ingredient-name">Beef</p>
-        </li>
       </ul>
       <button
         className="shopping-list__button shopping-list__button_clear"
         type="button"
+        onClick={handleClearListClick}
       >
         Clear List
       </button>

@@ -88,6 +88,11 @@ function App() {
     setShoppingList([newIngredient, ...shoppingList]);
   };
 
+  // Clear Shopping List
+  const handleClearListClick = () => {
+    setShoppingList([]);
+  };
+
   return (
     <HashRouter>
       <div className="app">
@@ -116,7 +121,12 @@ function App() {
               />
               <Route
                 path="shopping-list"
-                element={<ShoppingList shoppingList={shoppingList} />}
+                element={
+                  <ShoppingList
+                    shoppingList={shoppingList}
+                    handleClearListClick={handleClearListClick}
+                  />
+                }
               />
               <Route path="profile-settings" element={<ProfileSettings />} />
             </Route>
