@@ -14,6 +14,7 @@ import ProfileSettings from "../ProfileSettings/ProfileSettings";
 import Footer from "../Footer/Footer";
 import IngredientsModal from "../Modals/IngredientsModal/IngredientsModal";
 import InstructionsModal from "../Modals/InstructionsModal/InstructionsModal";
+import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 import "./App.css";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState(null);
   const [recipes, setRecipes] = useState([]);
   const [shoppingList, setShoppingList] = useState([]);
+  const [currentUser, setCurrentUser] = useState({});
 
   // Open Ingredients Modal
   const handleCardClick = (card) => {
@@ -60,10 +62,19 @@ function App() {
     };
   }, []);
 
+  // MOCK BACKEND CALLS vvvv
+
   // MOCK GET RECIPES FUNCTION
   const getRecipes = () => {
     return Promise.resolve(mockRecipes);
   };
+
+  //
+  const updateProfile = ({ name, avatar }) => {
+    return Promise.resolve({ name, avatar });
+  };
+
+  // MOCK BACKEND CALLS ^^^^
 
   // Get Recipe Cards
   useEffect(() => {
@@ -93,60 +104,84 @@ function App() {
     setShoppingList([]);
   };
 
+  // Update user info
+  const updateUser = ({ name, avatar }) => {
+    return updateProfile({ name, avatar })
+      .then(() => {
+        setCurrentUser((prev) => ({
+          ...prev,
+          name,
+          avatar,
+        }));
+      })
+      .catch((error) => {
+        console.error("Error updating user:", error);
+      });
+  };
+
   return (
     <HashRouter>
-      <div className="app">
-        <div className="app__content">
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route
-              path="/recipes"
-              element={
-                <Recipes recipes={recipes} onCardClick={handleCardClick} />
-              }
-            />
-            <Route path="/about" element={<About />} />
-            <Route path="/profile" element={<Profile />}>
-              <Route index element={<Tutorial />} />
-              <Route path="tutorial" element={<Tutorial />} />
+      <CurrentUserContext.Provider
+        value={{
+          currentUser,
+          updateUser,
+          // handleLogin,
+          // handleLogout,
+        }}
+      >
+        <div className="app">
+          <div className="app__content">
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
               <Route
-                path="favorite-recipes"
+                path="/recipes"
                 element={
-                  <FavoriteRecipes
-                    recipes={recipes}
-                    onCardClick={handleCardClick}
-                  />
+                  <Recipes recipes={recipes} onCardClick={handleCardClick} />
                 }
               />
-              <Route
-                path="shopping-list"
-                element={
-                  <ShoppingList
-                    shoppingList={shoppingList}
-                    handleClearListClick={handleClearListClick}
-                  />
-                }
-              />
-              <Route path="profile-settings" element={<ProfileSettings />} />
-            </Route>
-          </Routes>
-          <Footer />
+              <Route path="/about" element={<About />} />
+              <Route path="/profile" element={<Profile />}>
+                <Route index element={<Tutorial />} />
+                <Route path="tutorial" element={<Tutorial />} />
+                <Route
+                  path="favorite-recipes"
+                  element={
+                    <FavoriteRecipes
+                      recipes={recipes}
+                      onCardClick={handleCardClick}
+                    />
+                  }
+                />
+                <Route
+                  path="shopping-list"
+                  element={
+                    <ShoppingList
+                      shoppingList={shoppingList}
+                      handleClearListClick={handleClearListClick}
+                    />
+                  }
+                />
+                <Route path="profile-settings" element={<ProfileSettings />} />
+              </Route>
+            </Routes>
+            <Footer />
+          </div>
+          <IngredientsModal
+            activeModal={activeModal}
+            closeModal={closeModal}
+            card={selectedCard}
+            handleSwitchClick={handleSwitchClick}
+            handleAddIngredientClick={handleAddIngredientClick}
+          />
+          <InstructionsModal
+            activeModal={activeModal}
+            closeModal={closeModal}
+            card={selectedCard}
+            handleSwitchClick={handleSwitchClick}
+          />
         </div>
-        <IngredientsModal
-          activeModal={activeModal}
-          closeModal={closeModal}
-          card={selectedCard}
-          handleSwitchClick={handleSwitchClick}
-          handleAddIngredientClick={handleAddIngredientClick}
-        />
-        <InstructionsModal
-          activeModal={activeModal}
-          closeModal={closeModal}
-          card={selectedCard}
-          handleSwitchClick={handleSwitchClick}
-        />
-      </div>
+      </CurrentUserContext.Provider>
     </HashRouter>
   );
 }
