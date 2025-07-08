@@ -14,6 +14,7 @@ import ProfileSettings from "../ProfileSettings/ProfileSettings";
 import Footer from "../Footer/Footer";
 import IngredientsModal from "../Modals/IngredientsModal/IngredientsModal";
 import InstructionsModal from "../Modals/InstructionsModal/InstructionsModal";
+import AddItemModal from "../Modals/AddItemModal/AddItemModal.jsx";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 import "./App.css";
 
@@ -35,6 +36,11 @@ function App() {
     activeModal === "ingredients"
       ? setActiveModal("instructions")
       : setActiveModal("ingredients");
+  };
+
+  // Open Add Item Modal
+  const handleAddItemClick = () => {
+    setActiveModal("add-item");
   };
 
   // Close Modals(global)
@@ -159,6 +165,7 @@ function App() {
                     <ShoppingList
                       shoppingList={shoppingList}
                       handleClearListClick={handleClearListClick}
+                      handleAddItemClick={handleAddItemClick}
                     />
                   }
                 />
@@ -179,6 +186,11 @@ function App() {
             closeModal={closeModal}
             card={selectedCard}
             handleSwitchClick={handleSwitchClick}
+          />
+          <AddItemModal
+            activeModal={activeModal}
+            closeModal={closeModal}
+            handleAddIngredientClick={handleAddIngredientClick}
           />
         </div>
       </CurrentUserContext.Provider>

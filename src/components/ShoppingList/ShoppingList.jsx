@@ -1,6 +1,10 @@
 import "./ShoppingList.css";
 
-function ShoppingList({ shoppingList, handleClearListClick }) {
+function ShoppingList({
+  shoppingList,
+  handleClearListClick,
+  handleAddItemClick,
+}) {
   return (
     <section className="shopping-list">
       <div className="shopping-list__header">
@@ -8,6 +12,7 @@ function ShoppingList({ shoppingList, handleClearListClick }) {
         <button
           className="shopping-list__button shopping-list__button_add"
           type="button"
+          onClick={handleAddItemClick}
         >
           Add Item
         </button>
