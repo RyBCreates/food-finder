@@ -6,4 +6,6 @@
 
 .footer__copyright {
   opacity: 40%;
+  margin: 0;
+  padding-top: 20px;
 }

@@ -8,9 +8,7 @@
   font-family: "Lora", Georgia, "Times New Roman", Times, serif;
   border-radius: 10px;
   box-shadow: 5px 20px 25px 0;
-  padding-right: 24px;
-  height: 230px;
-  overflow: scroll;
+  height: 260px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -20,7 +18,7 @@
 }
 
 .card__image {
-  margin-right: 25px;
+  padding-right: 25px;
   border-radius: 10px 0 0 10px;
   height: 100%;
   width: 300px;
@@ -36,17 +34,17 @@
 }
 
 .card__title {
-  padding: 20px 0;
+  padding: 10px 0 20px 0;
   font-weight: 500;
   margin: 0;
-  font-size: 38px;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.4;
-  overflow: scroll;
+  white-space: wrap;
 }
 
 .card__recipe-stats {
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -62,7 +60,7 @@
   font-weight: 700;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1060px) {
   .card {
     flex-direction: column;
     height: auto;
@@ -75,6 +73,7 @@
     height: 200px;
     border-radius: 10px 10px 0 0;
     margin-right: 0;
+    padding-right: 0;
   }
 
   .card__info {
@@ -85,6 +84,10 @@
   .card__title {
     font-size: 24px;
     padding: 20px 30px;
+  }
+
+  .card__recipe-stats {
+    padding-bottom: 10px;
   }
 
   .card__stat {

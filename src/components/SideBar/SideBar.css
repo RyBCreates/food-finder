@@ -25,9 +25,17 @@
 
 .sidebar__link {
   padding-right: 40px;
+  white-space: nowrap;
 }
 
 .sidebar__link:hover {
   cursor: pointer;
   color: green;
+}
+
+@media (max-width: 1060px) {
+  .sidebar__link {
+    padding-right: 20px;
+    font-size: 12px;
+  }
 }

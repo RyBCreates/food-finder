@@ -1,5 +1,5 @@
 .profile {
-  padding: 50px 0 40px 30px;
+  padding: 50px 30px 40px 30px;
 }
 
 .profile__user-info-container {
@@ -37,4 +37,5 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  width: 100%;
 }
