@@ -17,7 +17,7 @@ function Profile() {
             alt={currentUser?.name || "default avatar"}
           />
         </div>
-        <h2 className="profile__username">{currentUser?.name}</h2>
+        <h2 className="profile__username">{currentUser?.name || "New User"}</h2>
       </div>
       <div className="profile__content">
         <SideBar />

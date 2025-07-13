@@ -15,7 +15,7 @@ function Header() {
       <div className="header__menu">
         <Navbar />
         <Link className="header__user-info" to="/profile">
-          <p className="header__username">{currentUser?.name}</p>
+          <p className="header__username">{currentUser?.name || "New User"}</p>
           <div className="header__avatar-wrapper">
             <img
               className="header__avatar"
