@@ -17,16 +17,25 @@ function ShoppingList({
           Add Item
         </button>
       </div>
-      <ul className="shopping-list__list">
-        {shoppingList.map((item, index) => (
-          <li className="shopping-list__ingredient" key={index}>
-            <input className="shopping-list__checkbox" type="checkbox"></input>
-            <p className="shopping-list__ingredient-name">
-              {item.amount} {item.name}
-            </p>
-          </li>
-        ))}
-      </ul>
+      {shoppingList.length === 0 ? (
+        <p className="shopping-list__empty-message">
+          You currently have no items in your shopping list!
+        </p>
+      ) : (
+        <ul className="shopping-list__list">
+          {shoppingList.map((item, index) => (
+            <li className="shopping-list__ingredient" key={index}>
+              <input
+                className="shopping-list__checkbox"
+                type="checkbox"
+              ></input>
+              <p className="shopping-list__ingredient-name">
+                {item.amount} {item.name}
+              </p>
+            </li>
+          ))}
+        </ul>
+      )}
       <button
         className="shopping-list__button shopping-list__button_clear"
         type="button"

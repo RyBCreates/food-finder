@@ -36,6 +36,10 @@
   opacity: 0.7;
 }
 
+.shopping-list__empty-message {
+  margin: 0 0 30px 80px;
+}
+
 .shopping-list__list {
   display: flex;
   flex-direction: column;
