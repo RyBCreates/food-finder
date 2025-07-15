@@ -40,13 +40,18 @@
 }
 
 .card__like-button {
-  background-color: red;
   width: 40px;
   height: 40px;
   border: none;
   border-radius: 50%;
   box-sizing: border-box;
   margin-right: 10px;
+}
+
+.card__like-icon {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
 }
 
 .card__like-button:hover {

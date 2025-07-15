@@ -1,4 +1,5 @@
 import { formatPrice } from "../../utils/formatPrice";
+import unliked from "../../assets/like-button/default-like.svg";
 import "./RecipeCard.css";
 
 function RecipeCard({ recipe, onCardClick }) {
@@ -7,7 +8,13 @@ function RecipeCard({ recipe, onCardClick }) {
       <img className="card__image" src={recipe.image} alt={recipe.title} />
       <div className="card__info">
         <div className="card__header">
-          <button className="card__like-button" type="button"></button>
+          <button className="card__like-button" type="button">
+            <img
+              className="card__like-icon"
+              src={unliked}
+              alt="like button"
+            ></img>
+          </button>
           <h3 className="card__title">{recipe.title}</h3>
         </div>
         <div className="card__recipe-stats">

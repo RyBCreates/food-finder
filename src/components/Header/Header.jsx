@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import defaultAvatar from "../../assets/default-avatar.svg";
+import logo from "../../assets/logo-placeholder.svg";
 import Navbar from "../Navbar/Navbar";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import "./Header.css";
@@ -10,7 +11,7 @@ function Header() {
   return (
     <header className="header">
       <Link to="/">
-        <div className="header__logo"></div>
+        <img className="header__logo" src={logo} alt="food finder logo"></img>
       </Link>
       <div className="header__menu">
         <Navbar />
