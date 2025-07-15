@@ -2,9 +2,33 @@ import "./Tutorial.css";
 
 function Tutorial() {
   return (
-    <div className="tutorial">
-      <h2 className="tutorial__title">INSTRUCTIONS ON HOW TO USE THE SITE</h2>
-    </div>
+    <section className="tutorial">
+      <h1 className="tutorial__title">Welcome to Food Finder</h1>
+      <p className="tutorial__intro">
+        Here's a quick guide to help you get started:
+      </p>
+      <ul className="tutorial__steps">
+        <li className="tutorial__step">
+          <span className="tutorial__step_bold">Search Recipes:</span> Use the
+          search bar on the Home page to find recipes by name or ingredients.
+        </li>
+        <li tutorial__step>
+          <span className="tutorial__step_bold">Save Favorites:</span> Click the
+          heart icon to save recipes to your favorites list.
+        </li>
+        <li tutorial__step>
+          <span className="tutorial__step_bold">Create a Shopping List:</span>{" "}
+          Add ingredients from any recipe to your shopping list.
+        </li>
+        <li tutorial__step>
+          <span className="tutorial__step_bold">Plan Your Meals:</span> Use the
+          upcoming calendar feature to organize weekly meals.
+        </li>
+      </ul>
+      <p className="tutorial__footer">
+        Ready? Head to the Recipes tab and start exploring!
+      </p>
+    </section>
   );
 }
 
