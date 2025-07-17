@@ -31,8 +31,8 @@ function ShoppingList({
         </p>
       ) : (
         <ul className="shopping-list__list">
-          {shoppingList.map((item, index) => (
-            <li className="shopping-list__ingredient" key={index}>
+          {shoppingList.map((item) => (
+            <li className="shopping-list__ingredient" key={item.id}>
               <input className="shopping-list__checkbox" type="checkbox" />
               <p className="shopping-list__ingredient-name">
                 {item.amount} {item.name}
@@ -40,7 +40,7 @@ function ShoppingList({
               <div className="shopping-list__actions">
                 <button
                   className="shopping-list__button shopping-list__edit"
-                  onClick={() => handleEditItemClick(index)}
+                  onClick={() => handleEditItemClick(item.id)}
                 >
                   <img
                     className="shopping-list__edit-icon"
@@ -50,13 +50,13 @@ function ShoppingList({
                 </button>
                 <button
                   className="shopping-list__button shopping-list__delete"
-                  onClick={() => handleDeleteItemClick(index)}
+                  onClick={() => handleDeleteItemClick(item.id)}
                 >
                   <img
-                    onMouseEnter={() => setDeleteHover(index)}
+                    onMouseEnter={() => setDeleteHover(item.id)}
                     onMouseLeave={() => setDeleteHover(null)}
                     className="shopping-list__delete-icon"
-                    src={deleteHover === index ? DeleteHover : DeleteDefault}
+                    src={deleteHover === item.id ? DeleteHover : DeleteDefault}
                     alt="delete icon"
                   ></img>
                 </button>

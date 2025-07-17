@@ -95,7 +95,7 @@ function App() {
 
   // Add Ingredients from Ingredient Modal to Shopping List
   const handleAddIngredientClick = (name, amount) => {
-    const newIngredient = { name, amount };
+    const newIngredient = { id: crypto.randomUUID(), name, amount };
     const alreadyExists = shoppingList.some((item) => {
       return (
         item.name.toLowerCase() === name.toLowerCase() && item.amount === amount
@@ -108,6 +108,13 @@ function App() {
   // Clear Shopping List
   const handleClearListClick = () => {
     setShoppingList([]);
+  };
+
+  // Delete an individual Item in the Shopping List
+  const handleShoppingListItemDelete = (itemToDelete) => {
+    setShoppingList((prevList) =>
+      prevList.filter((item) => item.id !== itemToDelete)
+    );
   };
 
   // Update user info
@@ -166,6 +173,7 @@ function App() {
                       shoppingList={shoppingList}
                       handleClearListClick={handleClearListClick}
                       handleAddItemClick={handleAddItemClick}
+                      handleDeleteItemClick={handleShoppingListItemDelete}
                     />
                   }
                 />
