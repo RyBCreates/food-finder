@@ -33,7 +33,6 @@
 
 .shopping-list__button:hover {
   cursor: pointer;
-  opacity: 0.7;
 }
 
 .shopping-list__empty-message {
@@ -88,11 +87,15 @@
 .shopping-list__edit-icon {
   width: 28px;
   cursor: pointer;
-  padding: 4px;
+  padding: 4px 4px 0 4px;
+}
+
+.shopping-list__edit-icon:hover {
+  opacity: 0.7;
 }
 
 .shopping-list__delete-icon {
   width: 28px;
   cursor: pointer;
-  padding: 4px;
+  padding: 4px 4px 0 4px;
 }

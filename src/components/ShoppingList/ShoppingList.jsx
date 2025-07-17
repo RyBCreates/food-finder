@@ -1,14 +1,18 @@
+import { useState } from "react";
 import Edit from "../../assets/edit-icon.svg";
-import Delete from "../../assets/close-button.svg";
+import DeleteDefault from "../../assets/delete-button/delete-button-default.svg";
+import DeleteHover from "../../assets/delete-button/delete-button-hover.svg";
 import "./ShoppingList.css";
 
 function ShoppingList({
   shoppingList,
   handleClearListClick,
   handleAddItemClick,
-  handleDeleteItemClick,
   handleEditItemClick,
+  handleDeleteItemClick,
 }) {
+  const [deleteHover, setDeleteHover] = useState(null);
+
   return (
     <section className="shopping-list">
       <div className="shopping-list__header">
@@ -49,8 +53,10 @@ function ShoppingList({
                   onClick={() => handleDeleteItemClick(index)}
                 >
                   <img
+                    onMouseEnter={() => setDeleteHover(index)}
+                    onMouseLeave={() => setDeleteHover(null)}
                     className="shopping-list__delete-icon"
-                    src={Delete}
+                    src={deleteHover === index ? DeleteHover : DeleteDefault}
                     alt="delete icon"
                   ></img>
                 </button>
