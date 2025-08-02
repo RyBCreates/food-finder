@@ -1,7 +1,7 @@
 import RecipeCard from "../RecipeCard/RecipeCard";
 import "./Recipes.css";
 
-function Recipes({ onCardClick, recipes }) {
+function Recipes({ onCardClick, recipes, handleAddFavoriteRecipe }) {
   return (
     <section className="recipes app__section">
       <h2 className="recipes__title">Recipes On The Menu Today</h2>
@@ -13,6 +13,7 @@ function Recipes({ onCardClick, recipes }) {
               key={recipe.id}
               recipe={recipe}
               onCardClick={onCardClick}
+              handleAddFavoriteRecipe={handleAddFavoriteRecipe}
             />
           );
         })}

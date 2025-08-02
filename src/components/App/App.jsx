@@ -24,6 +24,7 @@ function App() {
   const [recipes, setRecipes] = useState([]);
   const [shoppingList, setShoppingList] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
+  const [favoriteRecipes, setFavoriteRecipes] = useState([]);
 
   // Open Ingredients Modal
   const handleCardClick = (card) => {
@@ -93,6 +94,13 @@ function App() {
       });
   }, []);
 
+  // Add Recipe to Favorites
+  const handleAddFavoriteRecipe = (recipe) => {
+    const newFavorite = { recipe };
+
+    return setFavoriteRecipes([newFavorite, ...favoriteRecipes]);
+  };
+
   // Add Ingredients from Ingredient Modal to Shopping List
   const handleAddIngredientClick = (name, amount) => {
     const newIngredient = { id: crypto.randomUUID(), name, amount };
@@ -150,7 +158,11 @@ function App() {
               <Route
                 path="/recipes"
                 element={
-                  <Recipes recipes={recipes} onCardClick={handleCardClick} />
+                  <Recipes
+                    recipes={recipes}
+                    onCardClick={handleCardClick}
+                    handleAddFavoriteRecipe={handleAddFavoriteRecipe}
+                  />
                 }
               />
               <Route path="/about" element={<About />} />
@@ -162,6 +174,7 @@ function App() {
                   element={
                     <FavoriteRecipes
                       recipes={recipes}
+                      favoriteRecipes={favoriteRecipes}
                       onCardClick={handleCardClick}
                     />
                   }
