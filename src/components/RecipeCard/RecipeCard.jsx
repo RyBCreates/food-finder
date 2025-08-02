@@ -2,7 +2,13 @@ import { formatPrice } from "../../utils/formatPrice";
 import unliked from "../../assets/like-button/default-like.svg";
 import "./RecipeCard.css";
 
-function RecipeCard({ recipe, onCardClick, handleAddFavoriteRecipe }) {
+function RecipeCard({
+  recipe,
+  onCardClick,
+  handleAddFavoriteRecipe,
+  handleKeep,
+  passesLeft,
+}) {
   return (
     <li className="card" onClick={() => onCardClick(recipe)}>
       <img className="card__image" src={recipe.image} alt={recipe.title} />
@@ -42,6 +48,16 @@ function RecipeCard({ recipe, onCardClick, handleAddFavoriteRecipe }) {
           </p>
         </div>
       </div>
+      <button
+        className="card__keep-button"
+        onClick={(e) => {
+          e.stopPropagation();
+          handleKeep(0);
+        }}
+        disabled={passesLeft === 0}
+      >
+        PASS
+      </button>
     </li>
   );
 }

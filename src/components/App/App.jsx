@@ -28,7 +28,7 @@ function App() {
 
   const [recipe1, setRecipe1] = useState(null);
   const [recipe2, setRecipe2] = useState(null);
-  const [passesLeft, setPassesLeft] = useState(3);
+  const [passesLeft, setPassesLeft] = useState(25);
 
   const [currentUser, setCurrentUser] = useState({});
 
