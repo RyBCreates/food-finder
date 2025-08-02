@@ -21,10 +21,16 @@ import "./App.css";
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState(null);
-  const [recipes, setRecipes] = useState([]);
   const [shoppingList, setShoppingList] = useState([]);
-  const [currentUser, setCurrentUser] = useState({});
+
+  const [recipes, setRecipes] = useState([]);
   const [favoriteRecipes, setFavoriteRecipes] = useState([]);
+
+  const [recipe1, setRecipe1] = useState(null);
+  const [recipe2, setRecipe2] = useState(null);
+  const [passesLeft, setPassesLeft] = useState(3);
+
+  const [currentUser, setCurrentUser] = useState({});
 
   // Open Ingredients Modal
   const handleCardClick = (card) => {
@@ -81,9 +87,28 @@ function App() {
     return Promise.resolve({ name, avatar });
   };
 
+  const fetchNewRecipe = () => {
+    const randomIndex = Math.floor(Math.random() * recipes.length);
+    return Promise.resolve(recipes[randomIndex]);
+  };
+
   // MOCK BACKEND CALLS ^^^^
 
-  // Get Recipe Cards
+  // Get Initial Recipe Cards
+  useEffect(() => {
+    const loadInitialRecipes = async () => {
+      const recipe1 = await fetchNewRecipe();
+      const recipe2 = await fetchNewRecipe();
+      setRecipe1(recipe1);
+      setRecipe2(recipe2);
+    };
+
+    if ((!recipe1 && !recipe2) || recipe1 === recipe2) {
+      loadInitialRecipes();
+    }
+  }, [recipe1, recipe2]);
+
+  // Get Recipe Info
   useEffect(() => {
     getRecipes()
       .then((data) => {
@@ -140,9 +165,26 @@ function App() {
       });
   };
 
+  // login user
   const handleLogin = () => {};
 
+  // logout user
   const handleLogout = () => {};
+
+  // Pass/Skip Recipe Card
+  const handleKeep = (keepIndex) => {
+    if (keepIndex === 0 && passesLeft > 0) {
+      fetchNewRecipe().then((newRecipe) => {
+        if (newRecipe !== recipe1 || recipe2) setRecipe2(newRecipe);
+        setPassesLeft((p) => p - 1);
+      });
+    } else if (keepIndex === 1 && passesLeft > 0) {
+      fetchNewRecipe().then((newRecipe) => {
+        if (newRecipe !== recipe1 || recipe2) setRecipe1(newRecipe);
+        setPassesLeft((p) => p - 1);
+      });
+    }
+  };
 
   return (
     <HashRouter>
@@ -166,6 +208,10 @@ function App() {
                     recipes={recipes}
                     onCardClick={handleCardClick}
                     handleAddFavoriteRecipe={handleAddFavoriteRecipe}
+                    handleKeep={handleKeep}
+                    recipe1={recipe1}
+                    recipe2={recipe2}
+                    passesLeft={passesLeft}
                   />
                 }
               />
