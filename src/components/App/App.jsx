@@ -140,14 +140,18 @@ function App() {
       });
   };
 
+  const handleLogin = () => {};
+
+  const handleLogout = () => {};
+
   return (
     <HashRouter>
       <CurrentUserContext.Provider
         value={{
           currentUser,
           updateUser,
-          // handleLogin,
-          // handleLogout,
+          handleLogin,
+          handleLogout,
         }}
       >
         <div className="app">
