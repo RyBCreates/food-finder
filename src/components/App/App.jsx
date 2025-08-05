@@ -175,12 +175,12 @@ function App() {
   const handleKeep = (keepIndex) => {
     if (keepIndex === 0 && passesLeft > 0) {
       fetchNewRecipe().then((newRecipe) => {
-        if (newRecipe !== recipe1 || recipe2) setRecipe2(newRecipe);
+        if (newRecipe !== recipe1 || recipe2) setRecipe1(newRecipe);
         setPassesLeft((p) => p - 1);
       });
     } else if (keepIndex === 1 && passesLeft > 0) {
       fetchNewRecipe().then((newRecipe) => {
-        if (newRecipe !== recipe1 || recipe2) setRecipe1(newRecipe);
+        if (newRecipe !== recipe1 || recipe2) setRecipe2(newRecipe);
         setPassesLeft((p) => p - 1);
       });
     }

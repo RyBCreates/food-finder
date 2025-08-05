@@ -15,7 +15,7 @@ function Recipes({
       <p>Passes left: {passesLeft}</p>
       <ul className="recipes__card-list">
         {recipe1 && recipe2 && (
-          <div className="recipe-choice">
+          <>
             <RecipeCard
               recipe={recipe1}
               onCardClick={onCardClick}
@@ -31,7 +31,7 @@ function Recipes({
               handleKeep={handleKeep}
               passesLeft={passesLeft}
             />
-          </div>
+          </>
         )}
       </ul>
     </section>

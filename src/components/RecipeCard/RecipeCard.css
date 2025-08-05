@@ -23,7 +23,7 @@
   height: 100%;
   width: 300px;
   object-fit: cover;
-  object-position: left center;
+  object-position: center;
   flex-shrink: 0;
 }
 
@@ -40,10 +40,8 @@
 }
 
 .card__like-button {
-  width: 40px;
   height: 40px;
   border: none;
-  border-radius: 50%;
   box-sizing: border-box;
   margin-right: 10px;
 }
@@ -51,7 +49,6 @@
 .card__like-icon {
   width: 40px;
   height: 40px;
-  background-color: transparent;
 }
 
 .card__like-button:hover {
@@ -63,10 +60,11 @@
   padding: 10px 0;
   font-weight: 500;
   margin: 0;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
   line-height: 1.4;
   white-space: wrap;
+  max-width: 500px;
 }
 
 .card__recipe-stats {
@@ -86,22 +84,29 @@
   font-weight: 700;
 }
 
-.card__keep-button {
+.card__pass-button {
   background-color: rgb(221, 37, 37);
   height: 100%;
   margin-left: auto;
   border: solid 1px black;
   border-radius: 10px;
-  font-size: 32px;
+  font-size: 34px;
+  line-height: 1.2;
+  color: white;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s ease-in;
 }
 
-.card:hover .card__keep-button {
+.card__pass-button:hover {
+  background-color: #fa2e2e;
+}
+
+.card:hover .card__pass-button {
   visibility: visible;
   opacity: 1;
   cursor: pointer;
+  padding: 0 40px;
 }
 
 @media (max-width: 1060px) {

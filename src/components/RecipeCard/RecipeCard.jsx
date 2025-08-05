@@ -49,7 +49,7 @@ function RecipeCard({
         </div>
       </div>
       <button
-        className="card__keep-button"
+        className="card__pass-button"
         onClick={(e) => {
           e.stopPropagation();
           handleKeep(0);
