@@ -44,7 +44,8 @@ function RecipeCard({
             </span>
           </p>
           <p className="card__stat">
-            Rating - <span className="card__stat_bold">5.0</span>
+            Likes -{" "}
+            <span className="card__stat_bold">{recipe.aggregateLikes}</span>
           </p>
         </div>
       </div>
