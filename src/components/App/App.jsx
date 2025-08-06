@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import { mockRecipes } from "../../utils/mockRecipes";
+// import { mockRecipes } from "../../utils/mockRecipes";
+import { fetchRandomRecipe } from "../../utils/Api/recipesApi.js";
+import { addFavorite } from "../../utils/favoriteRecipesApi.js";
 
 import Header from "../Header/Header";
 import Home from "../Home/Home";
@@ -19,6 +21,9 @@ import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 import "./App.css";
 
 function App() {
+  // CHANGE THIS ONCE USER AUTH IS ADDED
+  const userId = "user123";
+
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState(null);
   const [shoppingList, setShoppingList] = useState([]);
@@ -77,12 +82,6 @@ function App() {
 
   // MOCK BACKEND CALLS vvvv
 
-  // MOCK GET RECIPES FUNCTION
-  const getRecipes = () => {
-    return Promise.resolve(mockRecipes);
-  };
-
-  //
   const updateProfile = ({ name, avatar }) => {
     return Promise.resolve({ name, avatar });
   };
@@ -94,11 +93,16 @@ function App() {
 
   // MOCK BACKEND CALLS ^^^^
 
+  // REAL API CALLS
+  const getRecipe = () => {
+    return fetchRandomRecipe();
+  };
+
   // Get Initial Recipe Cards
   useEffect(() => {
     const loadInitialRecipes = async () => {
-      const recipe1 = await fetchNewRecipe();
-      const recipe2 = await fetchNewRecipe();
+      const recipe1 = await getRecipe();
+      const recipe2 = await getRecipe();
       setRecipe1(recipe1);
       setRecipe2(recipe2);
     };
@@ -110,7 +114,7 @@ function App() {
 
   // Get Recipe Info
   useEffect(() => {
-    getRecipes()
+    getRecipe()
       .then((data) => {
         setRecipes(data);
       })
@@ -122,8 +126,9 @@ function App() {
   // Add Recipe to Favorites
   const handleAddFavoriteRecipe = (recipe) => {
     const newFavorite = { recipe };
-
-    return setFavoriteRecipes([newFavorite, ...favoriteRecipes]);
+    addFavorite(userId, newFavorite).then((data) => {
+      setFavoriteRecipes([data, ...favoriteRecipes]);
+    });
   };
 
   // Add Ingredients from Ingredient Modal to Shopping List
