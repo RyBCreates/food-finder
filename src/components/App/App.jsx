@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
-// import { mockRecipes } from "../../utils/mockRecipes";
+import { mockRecipes } from "../../utils/mockRecipes";
 import { fetchRandomRecipe } from "../../utils/Api/recipesApi.js";
 import { addFavorite } from "../../utils/favoriteRecipesApi.js";
 
@@ -28,7 +28,6 @@ function App() {
   const [selectedCard, setSelectedCard] = useState(null);
   const [shoppingList, setShoppingList] = useState([]);
 
-  const [recipes, setRecipes] = useState([]);
   const [favoriteRecipes, setFavoriteRecipes] = useState([]);
 
   const [recipe1, setRecipe1] = useState(null);
@@ -86,42 +85,50 @@ function App() {
     return Promise.resolve({ name, avatar });
   };
 
-  const fetchNewRecipe = () => {
-    const randomIndex = Math.floor(Math.random() * recipes.length);
-    return Promise.resolve(recipes[randomIndex]);
-  };
-
   // MOCK BACKEND CALLS ^^^^
 
   // REAL API CALLS
-  const getRecipe = () => {
-    return fetchRandomRecipe();
+  const getRecipe = async () => {
+    return await fetchRandomRecipe();
   };
 
   // Get Initial Recipe Cards
   useEffect(() => {
     const loadInitialRecipes = async () => {
-      const recipe1 = await getRecipe();
-      const recipe2 = await getRecipe();
-      setRecipe1(recipe1);
-      setRecipe2(recipe2);
+      try {
+        const first = await getRecipe();
+        const second = await getRecipe();
+
+        while (second.id === first.id) {
+          second = await getRecipe();
+        }
+
+        setRecipe1(first);
+        setRecipe2(second);
+      } catch (err) {
+        console.error("Failed to load initial recipes:", err);
+      }
     };
 
-    if ((!recipe1 && !recipe2) || recipe1 === recipe2) {
+    if (!recipe1 && !recipe2) {
       loadInitialRecipes();
     }
   }, [recipe1, recipe2]);
 
-  // Get Recipe Info
-  useEffect(() => {
-    getRecipe()
-      .then((data) => {
-        setRecipes(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching items:", error);
+  // Pass/Skip Recipe Card
+  const handleKeep = (keepIndex) => {
+    if (keepIndex === 0 && passesLeft > 0) {
+      getRecipe().then((newRecipe) => {
+        if (newRecipe !== recipe1 || recipe2) setRecipe1(newRecipe);
+        setPassesLeft((p) => p - 1);
       });
-  }, []);
+    } else if (keepIndex === 1 && passesLeft > 0) {
+      getRecipe().then((newRecipe) => {
+        if (newRecipe !== recipe1 || recipe2) setRecipe2(newRecipe);
+        setPassesLeft((p) => p - 1);
+      });
+    }
+  };
 
   // Add Recipe to Favorites
   const handleAddFavoriteRecipe = (recipe) => {
@@ -176,21 +183,6 @@ function App() {
   // logout user
   const handleLogout = () => {};
 
-  // Pass/Skip Recipe Card
-  const handleKeep = (keepIndex) => {
-    if (keepIndex === 0 && passesLeft > 0) {
-      getRecipe().then((newRecipe) => {
-        if (newRecipe !== recipe1 || recipe2) setRecipe1(newRecipe);
-        setPassesLeft((p) => p - 1);
-      });
-    } else if (keepIndex === 1 && passesLeft > 0) {
-      getRecipe().then((newRecipe) => {
-        if (newRecipe !== recipe1 || recipe2) setRecipe2(newRecipe);
-        setPassesLeft((p) => p - 1);
-      });
-    }
-  };
-
   return (
     <HashRouter>
       <CurrentUserContext.Provider
@@ -210,7 +202,6 @@ function App() {
                 path="/recipes"
                 element={
                   <Recipes
-                    recipes={recipes}
                     onCardClick={handleCardClick}
                     handleAddFavoriteRecipe={handleAddFavoriteRecipe}
                     handleKeep={handleKeep}
@@ -228,7 +219,6 @@ function App() {
                   path="favorite-recipes"
                   element={
                     <FavoriteRecipes
-                      recipes={recipes}
                       favoriteRecipes={favoriteRecipes}
                       onCardClick={handleCardClick}
                     />

@@ -14,7 +14,7 @@ function RecipeCard({
       <img className="card__image" src={recipe.image} alt={recipe.title} />
       <div className="card__info">
         <div className="card__header">
-          <button
+          {/* <button
             className="card__like-button"
             type="button"
             onClick={(e) => {
@@ -27,7 +27,7 @@ function RecipeCard({
               src={unliked}
               alt="like button"
             ></img>
-          </button>
+          </button> */}
           <h3 className="card__title">{recipe.title}</h3>
         </div>
         <div className="card__recipe-stats">
@@ -49,16 +49,27 @@ function RecipeCard({
           </p>
         </div>
       </div>
-      <button
-        className="card__pass-button"
-        onClick={(e) => {
-          e.stopPropagation();
-          handleKeep(0);
-        }}
-        disabled={passesLeft === 0}
-      >
-        PASS
-      </button>
+      <div className="card__buttons-container">
+        <button
+          className="card__save-button"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleAddFavoriteRecipe(recipe);
+          }}
+        >
+          SAVE
+        </button>
+        <button
+          className="card__pass-button"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleKeep(0);
+          }}
+          disabled={passesLeft === 0}
+        >
+          PASS
+        </button>
+      </div>
     </li>
   );
 }
