@@ -10,11 +10,11 @@ function Tutorial() {
       <ul className="tutorial__steps">
         <li className="tutorial__step">
           <span className="tutorial__step_bold">Search Recipes:</span> Use the
-          search bar on the Home page to find recipes by name or ingredients.
+          search bar on the Favorite Recipes page to find saved recipes by name.
         </li>
         <li tutorial__step>
           <span className="tutorial__step_bold">Save Favorites:</span> Click the
-          heart icon to save recipes to your favorites list.
+          "SAVE" button to save recipes to your favorites list.
         </li>
         <li tutorial__step>
           <span className="tutorial__step_bold">Create a Shopping List:</span>{" "}

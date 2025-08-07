@@ -7,6 +7,7 @@ function RecipeCard({
   handleAddFavoriteRecipe,
   handlePass,
   passesLeft,
+  cardVariant = "default",
 }) {
   return (
     <li className="card" onClick={() => onCardClick(recipe)}>
@@ -34,28 +35,30 @@ function RecipeCard({
           </p>
         </div>
       </div>
-      <div className="card__buttons-container">
-        <button
-          className="card__save-button"
-          onClick={(e) => {
-            const userId = "64f55d3ea2ceff749c82031e";
-            e.stopPropagation();
-            handleAddFavoriteRecipe(userId, recipe);
-          }}
-        >
-          SAVE
-        </button>
-        <button
-          className="card__pass-button"
-          onClick={(e) => {
-            e.stopPropagation();
-            handlePass(0);
-          }}
-          disabled={passesLeft === 0}
-        >
-          PASS
-        </button>
-      </div>
+      {cardVariant === "default" && (
+        <div className="card__buttons-container">
+          <button
+            className="card__save-button"
+            onClick={(e) => {
+              const userId = "64f55d3ea2ceff749c82031e";
+              e.stopPropagation();
+              handleAddFavoriteRecipe(userId, recipe);
+            }}
+          >
+            SAVE
+          </button>
+          <button
+            className="card__pass-button"
+            onClick={(e) => {
+              e.stopPropagation();
+              handlePass(0);
+            }}
+            disabled={passesLeft === 0}
+          >
+            PASS
+          </button>
+        </div>
+      )}
     </li>
   );
 }

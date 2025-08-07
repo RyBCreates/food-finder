@@ -25,6 +25,9 @@ function App() {
   const userId = "64f55d3ea2ceff749c82031e";
 
   const [activeModal, setActiveModal] = useState("");
+
+  const [cardVariant, setCardVariant] = useState("default");
+
   const [selectedCard, setSelectedCard] = useState(null);
   const [shoppingList, setShoppingList] = useState([]);
 
@@ -87,6 +90,7 @@ function App() {
     return Promise.resolve({ name, avatar });
   };
 
+  // IF OUT OF API CALLS, USE THIS FUNCTION
   const getRecipe = async () => {
     const randomIndex = Math.floor(Math.random() * mockRecipes.length);
     return Promise.resolve(mockRecipes[randomIndex]);
@@ -109,7 +113,6 @@ function App() {
         while (second.id === first.id) {
           second = await getRecipe();
         }
-
         setRecipe1(first);
         setRecipe2(second);
       } catch (err) {
@@ -141,7 +144,7 @@ function App() {
   const handleAddFavoriteRecipe = (userId, recipe) => {
     addFavorite(userId, recipe).then((data) => {
       setFavoriteRecipes([data, ...favoriteRecipes]);
-      console.log("Here is the favoriteRecipes list:", favoriteRecipes);
+      setCardVariant("favorite");
     });
   };
 
@@ -215,6 +218,7 @@ function App() {
                     recipe1={recipe1}
                     recipe2={recipe2}
                     passesLeft={passesLeft}
+                    cardVariant={cardVariant}
                   />
                 }
               />
@@ -228,6 +232,7 @@ function App() {
                     <FavoriteRecipes
                       favoriteRecipes={favoriteRecipes}
                       onCardClick={handleCardClick}
+                      cardVariant={cardVariant}
                     />
                   }
                 />

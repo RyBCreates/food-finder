@@ -4,7 +4,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-shrink: 1;
   border-radius: 3px;
 }
 

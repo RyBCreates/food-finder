@@ -24,6 +24,7 @@ function FavoriteRecipes({ onCardClick, favoriteRecipes }) {
                 key={favorite._id}
                 recipe={favorite}
                 onCardClick={onCardClick}
+                cardVariant="favorite"
               />
             );
           })
