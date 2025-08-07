@@ -9,3 +9,9 @@
   margin: 0;
   padding: 20px 0;
 }
+
+@media (max-width: 600px) {
+  .footer__copyright {
+    font-size: 12px;
+  }
+}

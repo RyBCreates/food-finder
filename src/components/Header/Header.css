@@ -89,3 +89,21 @@
   object-fit: contain;
   transform: translateY(3px);
 }
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 10px;
+    height: 150px;
+  }
+
+  .header__username {
+    font-size: 18px;
+  }
+
+  .header__avatar-wrapper {
+    width: 30px;
+    height: 30px;
+  }
+}

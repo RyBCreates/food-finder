@@ -184,10 +184,20 @@
   .card__save-button {
     width: 100%;
     border-radius: 0 0 0 10px;
+    font-size: 18px;
+  }
+
+  .card:hover .card__save-button {
+    padding: 0 10px;
   }
 
   .card__pass-button {
     width: 100%;
     border-radius: 0 0 10px 0;
+    font-size: 18px;
+  }
+
+  .card:hover .card__pass-button {
+    padding: 0 10px;
   }
 }

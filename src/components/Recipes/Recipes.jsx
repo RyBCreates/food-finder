@@ -12,7 +12,7 @@ function Recipes({
   return (
     <section className="recipes app__section">
       <h2 className="recipes__title">Recipes On The Menu Today</h2>
-      <p>Passes left: {passesLeft}</p>
+      <p className="recipes__passes">Passes left: {passesLeft}</p>
       <ul className="recipes__card-list">
         {recipe1 && recipe2 && (
           <>

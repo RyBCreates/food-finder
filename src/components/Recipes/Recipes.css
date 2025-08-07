@@ -10,6 +10,10 @@
   border-bottom: 1px solid black;
 }
 
+.recipes__passes {
+  font-size: 18px;
+}
+
 .recipes__card-list {
   display: flex;
   flex-direction: column;
@@ -18,4 +22,10 @@
   list-style: none;
   padding: 0;
   gap: 40px;
+}
+
+@media (max-width: 1060px) {
+  .recipes__title {
+    font-size: 30px;
+  }
 }
