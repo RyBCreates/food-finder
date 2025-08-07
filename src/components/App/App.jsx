@@ -22,7 +22,7 @@ import "./App.css";
 
 function App() {
   // CHANGE THIS ONCE USER AUTH IS ADDED
-  const userId = "user123";
+  const userId = "64f55d3ea2ceff749c82031e";
 
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState(null);
@@ -133,10 +133,10 @@ function App() {
   };
 
   // Add Recipe to Favorites
-  const handleAddFavoriteRecipe = (recipe) => {
-    const newFavorite = { recipe };
-    addFavorite(userId, newFavorite).then((data) => {
+  const handleAddFavoriteRecipe = (userId, recipe) => {
+    addFavorite(userId, recipe).then((data) => {
       setFavoriteRecipes([data, ...favoriteRecipes]);
+      console.log("Here is the favoriteRecipes list:", favoriteRecipes);
     });
   };
 

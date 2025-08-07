@@ -11,15 +11,23 @@ function FavoriteRecipes({ onCardClick, favoriteRecipes }) {
         <FilterMenu />
       </div>
       <ul className="favorite-recipes__list">
-        {favoriteRecipes.map((favorite) => {
-          return (
-            <RecipeCard
-              key={favorite.id}
-              recipe={favorite}
-              onCardClick={onCardClick}
-            />
-          );
-        })}
+        {favoriteRecipes.length === 0 ? (
+          <>
+            <p className="favorite-recipes__empty">
+              No Recipes Currently Saved
+            </p>
+          </>
+        ) : (
+          favoriteRecipes.map((favorite) => {
+            return (
+              <RecipeCard
+                key={favorite._id}
+                recipe={favorite}
+                onCardClick={onCardClick}
+              />
+            );
+          })
+        )}
       </ul>
     </section>
   );

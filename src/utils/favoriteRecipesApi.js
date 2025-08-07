@@ -1,7 +1,7 @@
 import { baseUrl } from "./constants";
 
 export const addFavorite = (userId, recipe) => {
-  fetch(`${baseUrl}/favorites`, {
+  return fetch(`${baseUrl}/favorites`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

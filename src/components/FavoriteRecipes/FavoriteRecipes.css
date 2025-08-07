@@ -21,3 +21,6 @@
   width: 100%;
   margin: 0;
 }
+.favorite-recipes__empty {
+  margin: 0 0 30px 50px;
+}

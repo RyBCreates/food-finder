@@ -1,19 +1,36 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
 
 function SideBar() {
   return (
     <div className="sidebar">
       <ul className="sidebar__menu">
-        <Link to="favorite-recipes" className="sidebar__link-container">
+        <NavLink
+          to="favorite-recipes"
+          className={({ isActive }) =>
+            `sidebar__link-container ${isActive ? "active" : ""}`
+          }
+        >
           <li className="sidebar__link">Favorite Recipes</li>
-        </Link>
-        <Link to="shopping-list" className="sidebar__link-container">
+        </NavLink>
+
+        <NavLink
+          to="shopping-list"
+          className={({ isActive }) =>
+            `sidebar__link-container ${isActive ? "active" : ""}`
+          }
+        >
           <li className="sidebar__link">Shopping List</li>
-        </Link>
-        <Link to="profile-settings" className="sidebar__link-container">
+        </NavLink>
+
+        <NavLink
+          to="profile-settings"
+          className={({ isActive }) =>
+            `sidebar__link-container ${isActive ? "active" : ""}`
+          }
+        >
           <li className="sidebar__link">Profile Settings</li>
-        </Link>
+        </NavLink>
       </ul>
     </div>
   );

@@ -33,6 +33,10 @@
   color: green;
 }
 
+.sidebar__link-container.active .sidebar__link {
+  font-weight: 1000;
+}
+
 @media (max-width: 1060px) {
   .sidebar__link {
     padding-right: 20px;
