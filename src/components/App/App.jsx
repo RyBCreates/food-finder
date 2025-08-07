@@ -87,12 +87,17 @@ function App() {
     return Promise.resolve({ name, avatar });
   };
 
+  const getRecipe = async () => {
+    const randomIndex = Math.floor(Math.random() * mockRecipes.length);
+    return Promise.resolve(mockRecipes[randomIndex]);
+  };
+
   // MOCK BACKEND CALLS ^^^^
 
   // REAL API CALLS
-  const getRecipe = async () => {
-    return await fetchRandomRecipe();
-  };
+  // const getRecipe = async () => {
+  //   return await fetchRandomRecipe();
+  // };
 
   // Get Initial Recipe Cards
   useEffect(() => {
@@ -118,7 +123,7 @@ function App() {
   }, []);
 
   // Pass/Skip Recipe Card
-  const handleKeep = (keepIndex) => {
+  const handlePass = (keepIndex) => {
     if (keepIndex === 0 && passesLeft > 0) {
       getRecipe().then((newRecipe) => {
         if (newRecipe !== recipe1 || recipe2) setRecipe1(newRecipe);
@@ -206,7 +211,7 @@ function App() {
                   <Recipes
                     onCardClick={handleCardClick}
                     handleAddFavoriteRecipe={handleAddFavoriteRecipe}
-                    handleKeep={handleKeep}
+                    handlePass={handlePass}
                     recipe1={recipe1}
                     recipe2={recipe2}
                     passesLeft={passesLeft}

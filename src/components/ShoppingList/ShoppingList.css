@@ -26,9 +26,19 @@
   color: green;
 }
 
+.shopping-list__button_add:hover {
+  color: rgb(2, 218, 2);
+  scale: 1.1;
+}
+
 .shopping-list__button_clear {
-  color: red;
+  color: rgb(198, 0, 0);
   margin-left: 80px;
+}
+
+.shopping-list__button_clear:hover {
+  color: rgb(255, 103, 103);
+  scale: 1.1;
 }
 
 .shopping-list__button:hover {

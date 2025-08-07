@@ -31,6 +31,7 @@
 .sidebar__link:hover {
   cursor: pointer;
   color: green;
+  scale: 1.05;
 }
 
 .sidebar__link-container.active .sidebar__link {

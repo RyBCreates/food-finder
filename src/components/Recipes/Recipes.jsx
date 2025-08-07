@@ -4,7 +4,7 @@ import "./Recipes.css";
 function Recipes({
   onCardClick,
   handleAddFavoriteRecipe,
-  handleKeep,
+  handlePass,
   recipe1,
   recipe2,
   passesLeft,
@@ -20,7 +20,7 @@ function Recipes({
               recipe={recipe1}
               onCardClick={onCardClick}
               handleAddFavoriteRecipe={handleAddFavoriteRecipe}
-              handleKeep={handleKeep}
+              handlePass={handlePass}
               passesLeft={passesLeft}
             />
 
@@ -28,7 +28,7 @@ function Recipes({
               recipe={recipe2}
               onCardClick={onCardClick}
               handleAddFavoriteRecipe={handleAddFavoriteRecipe}
-              handleKeep={handleKeep}
+              handlePass={handlePass}
               passesLeft={passesLeft}
             />
           </>
