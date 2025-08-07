@@ -32,6 +32,8 @@ function App() {
 
   const [recipe1, setRecipe1] = useState(null);
   const [recipe2, setRecipe2] = useState(null);
+
+  // Adjust the number here for testing purposes Set to 3 for Deployment
   const [passesLeft, setPassesLeft] = useState(25);
 
   const [currentUser, setCurrentUser] = useState({});
@@ -97,7 +99,7 @@ function App() {
     const loadInitialRecipes = async () => {
       try {
         const first = await getRecipe();
-        const second = await getRecipe();
+        let second = await getRecipe();
 
         while (second.id === first.id) {
           second = await getRecipe();
@@ -113,7 +115,7 @@ function App() {
     if (!recipe1 && !recipe2) {
       loadInitialRecipes();
     }
-  }, [recipe1, recipe2]);
+  }, []);
 
   // Pass/Skip Recipe Card
   const handleKeep = (keepIndex) => {

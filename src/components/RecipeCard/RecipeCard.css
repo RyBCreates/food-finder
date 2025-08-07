@@ -92,6 +92,8 @@
 
 .card__save-button {
   background-color: green;
+  box-sizing: border-box;
+  border-radius: 0 10px 0 0;
   font-size: 34px;
   line-height: 1.2;
   height: 100%;
@@ -108,6 +110,8 @@
 
 .card__pass-button {
   background-color: rgb(211, 35, 35);
+  border-radius: 0 0 10px 0;
+  box-sizing: border-box;
   font-size: 34px;
   line-height: 1.2;
   height: 100%;
@@ -179,9 +183,11 @@
 
   .card__save-button {
     width: 100%;
+    border-radius: 0 0 0 10px;
   }
 
   .card__pass-button {
     width: 100%;
+    border-radius: 0 0 10px 0;
   }
 }

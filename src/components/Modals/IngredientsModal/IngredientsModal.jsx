@@ -37,7 +37,10 @@ function IngredientsModal({
             </span>
           </p>
           <p className="modal__recipe-stat">
-            Rating - <span className="modal__recipe-stat_bold">5.0</span>
+            Likes -{" "}
+            <span className="modal__recipe-stat_bold">
+              {card?.aggregateLikes}
+            </span>
           </p>
         </div>
         <div className="modal__ingredients-header">
