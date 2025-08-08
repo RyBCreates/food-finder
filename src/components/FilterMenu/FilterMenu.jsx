@@ -21,7 +21,7 @@ function FilterMenu() {
         FILTER
       </button>
       <img
-        className="filter__icon"
+        className={isOpen ? "filter__icon filter__icon_open" : "filter__icon"}
         src={DropDown}
         alt="drop down arrow"
         onClick={toggleDropdown}

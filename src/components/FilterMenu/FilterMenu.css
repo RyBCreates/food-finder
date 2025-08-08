@@ -32,6 +32,10 @@
   opacity: 0.6;
 }
 
+.filter__icon_open {
+  transform: rotate(180deg);
+}
+
 .filter__dropdown {
   position: absolute;
   display: flex;
