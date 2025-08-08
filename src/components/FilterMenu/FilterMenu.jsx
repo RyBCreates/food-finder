@@ -28,13 +28,30 @@ function FilterMenu() {
       />
       {isOpen && (
         <div className="filter__dropdown">
-          <button onClick={() => handleFilterSelect("prep-time")}>
+          <button
+            className="filter__option"
+            onClick={() => handleFilterSelect("recent")}
+          >
+            Most Recent
+          </button>
+          <button
+            className="filter__option"
+            onClick={() => handleFilterSelect("prep-time")}
+          >
             Prep Time
           </button>
-          <button onClick={() => handleFilterSelect("cost-per-serving")}>
+          <button
+            className="filter__option"
+            onClick={() => handleFilterSelect("cost-per-serving")}
+          >
             Cost Per Serving
           </button>
-          <button onClick={() => handleFilterSelect("likes")}>Likes</button>
+          <button
+            className="filter__option"
+            onClick={() => handleFilterSelect("likes")}
+          >
+            Likes
+          </button>
         </div>
       )}
     </div>
