@@ -163,11 +163,12 @@
 
   .card__title {
     font-size: 24px;
-    padding: 20px 30px;
+    padding: 10px 30px;
   }
 
   .card__recipe-stats {
     padding: 0 0 10px;
+    gap: 5px;
   }
 
   .card__stat {
@@ -183,6 +184,7 @@
 
   .card__save-button {
     width: 100%;
+    height: 40px;
     border-radius: 0 0 0 10px;
     font-size: 18px;
   }
@@ -193,6 +195,7 @@
 
   .card__pass-button {
     width: 100%;
+    height: 40px;
     border-radius: 0 0 10px 0;
     font-size: 18px;
   }
