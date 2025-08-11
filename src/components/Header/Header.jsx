@@ -7,7 +7,7 @@ import AuthButtons from "../AuthButtons/AuthButtons";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import "./Header.css";
 
-function Header({ isLoggedIn }) {
+function Header({ isLoggedIn, handleLoginClick, handleRegisterClick }) {
   const { currentUser } = useContext(CurrentUserContext);
   return (
     <header className="header">
@@ -33,7 +33,10 @@ function Header({ isLoggedIn }) {
       ) : (
         <div className="header__menu">
           <Navbar />
-          <AuthButtons />
+          <AuthButtons
+            handleRegisterClick={handleRegisterClick}
+            handleLoginClick={handleLoginClick}
+          />
         </div>
       )}
     </header>

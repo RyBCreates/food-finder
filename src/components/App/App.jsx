@@ -53,6 +53,16 @@ function App() {
   //   }
   // }, []);
 
+  // Open Login Modal
+  const handleLoginClick = () => {
+    setActiveModal("login");
+  };
+
+  // Open Register Modal
+  const handleRegisterClick = () => {
+    setActiveModal("register");
+  };
+
   // Open Ingredients Modal
   const handleCardClick = (card) => {
     setActiveModal("ingredients");
@@ -217,7 +227,11 @@ function App() {
       >
         <div className="app">
           <div className="app__content">
-            <Header isLoggedIn={isLoggedIn} />
+            <Header
+              isLoggedIn={isLoggedIn}
+              handleLoginClick={handleLoginClick}
+              handleRegisterClick={handleRegisterClick}
+            />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route
@@ -283,8 +297,8 @@ function App() {
             handleAddIngredientClick={handleAddIngredientClick}
           />
         </div>
-        <RegisterModal />
-        <LoginModal />
+        <RegisterModal activeModal={activeModal} closeModal={closeModal} />
+        <LoginModal activeModal={activeModal} closeModal={closeModal} />
       </CurrentUserContext.Provider>
     </HashRouter>
   );
