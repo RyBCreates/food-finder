@@ -7,10 +7,6 @@
   padding: 6px 12px;
 }
 
-.filter:hover {
-  /* opacity: 0.6; */
-}
-
 .filter__button {
   background-color: transparent;
   border: none;
