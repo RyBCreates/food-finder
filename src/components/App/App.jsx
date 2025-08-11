@@ -17,6 +17,8 @@ import Footer from "../Footer/Footer";
 import IngredientsModal from "../Modals/IngredientsModal/IngredientsModal";
 import InstructionsModal from "../Modals/InstructionsModal/InstructionsModal";
 import AddItemModal from "../Modals/AddItemModal/AddItemModal.jsx";
+import LoginModal from "../Modals/LoginModal/LoginModal.jsx";
+import RegisterModal from "../Modals/RegisterModal/RegisterModal.jsx";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 import "./App.css";
 
@@ -40,6 +42,16 @@ function App() {
   const [passesLeft, setPassesLeft] = useState(25);
 
   const [currentUser, setCurrentUser] = useState({});
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // CHECK FOR TOKEN TO LOGIN USER
+  // useEffect(() => {
+  //   try {
+  //     setIsLoggedIn(true);
+  //   } catch (err) {
+  //     console.error("Could not log user in", err);
+  //   }
+  // }, []);
 
   // Open Ingredients Modal
   const handleCardClick = (card) => {
@@ -205,7 +217,7 @@ function App() {
       >
         <div className="app">
           <div className="app__content">
-            <Header />
+            <Header isLoggedIn={isLoggedIn} />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route
@@ -271,6 +283,8 @@ function App() {
             handleAddIngredientClick={handleAddIngredientClick}
           />
         </div>
+        <RegisterModal />
+        <LoginModal />
       </CurrentUserContext.Provider>
     </HashRouter>
   );
