@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
+// For Testing purposes vvv
 import { mockRecipes } from "../../utils/mockRecipes";
+// For Deployment vvv
 import { fetchRandomRecipe } from "../../utils/Api/recipesApi.js";
 import { addFavorite } from "../../utils/favoriteRecipesApi.js";
 
@@ -125,7 +127,7 @@ function App() {
 
   // MOCK BACKEND CALLS ^^^^
 
-  // REAL API CALLS
+  // REAL API CALLS (Use for deployment)
   // const getRecipe = async () => {
   //   return await fetchRandomRecipe();
   // };

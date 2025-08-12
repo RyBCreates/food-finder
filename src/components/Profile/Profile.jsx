@@ -10,6 +10,10 @@ function Profile() {
   return (
     <section className="profile app__section">
       <div className="profile__user-info-container">
+        <button type="button" className="profile__hamburger">
+          |||
+        </button>
+
         <div className="profile__avatar-wrapper">
           <img
             className="profile__avatar"
@@ -22,7 +26,10 @@ function Profile() {
         </h2>
       </div>
       <div className="profile__content">
-        <SideBar />
+        <div className="profile__sidebar-mobile">
+          <SideBar />
+        </div>
+
         <Outlet />
       </div>
     </section>

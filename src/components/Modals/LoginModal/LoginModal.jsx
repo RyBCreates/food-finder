@@ -13,7 +13,7 @@ function LoginModal({ activeModal, closeModal }) {
         >
           <img className="modal__close-icon" src={Close} alt="close icon" />
         </button>
-        <h2 className="modal__title">Login</h2>
+        <h2 className="modal__title modal__title_type-auth">Login</h2>
         <form className="modal__form">
           <label className="modal__label">
             Email *<input placeholder="Example@example.com"></input>

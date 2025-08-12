@@ -45,11 +45,19 @@
   opacity: 0.6;
 }
 
-.modal__recipe-title {
+.modal__title {
   margin: 0;
   font-size: 32px;
+}
+
+.modal__recipe-title {
   overflow: scroll;
   max-width: 750px;
+}
+
+.modal__title_type-auth {
+  font-weight: 700;
+  text-align: center;
 }
 
 .modal__recipe-stats {
