@@ -50,9 +50,9 @@ function IngredientsModal({
           </p>
         </div>
         <ol className="modal__ingredients-list">
-          {card?.extendedIngredients?.map((ingredient) => (
+          {card?.extendedIngredients?.map((ingredient, index) => (
             <Ingredient
-              key={ingredient.id}
+              key={index}
               ingredient={ingredient}
               handleAddIngredientClick={handleAddIngredientClick}
             />
