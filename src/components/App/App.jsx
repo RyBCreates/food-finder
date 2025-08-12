@@ -243,7 +243,7 @@ function App() {
               handleRegisterClick={handleRegisterClick}
             />
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
               <Route
                 path="/recipes"
                 element={
@@ -255,6 +255,7 @@ function App() {
                     recipe2={recipe2}
                     passesLeft={passesLeft}
                     cardVariant={cardVariant}
+                    isLoggedIn={isLoggedIn}
                   />
                 }
               />

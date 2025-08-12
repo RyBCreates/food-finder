@@ -44,13 +44,16 @@
   margin: 0 0 0 20px;
 }
 
+.home__subtext:last-of-type {
+  margin-bottom: 20px;
+}
+
 .home__button {
   position: relative;
   overflow: hidden;
   border: none;
   border-radius: 10px;
   height: 70px;
-  margin-top: 20px;
   padding: 0 30px;
   font-weight: bold;
   background: linear-gradient(to right, #fff 0%, #f9e83f 75%, #fe4747 100%);
