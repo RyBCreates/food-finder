@@ -19,6 +19,7 @@ import InstructionsModal from "../Modals/InstructionsModal/InstructionsModal";
 import AddItemModal from "../Modals/AddItemModal/AddItemModal.jsx";
 import LoginModal from "../Modals/LoginModal/LoginModal.jsx";
 import RegisterModal from "../Modals/RegisterModal/RegisterModal.jsx";
+import Preloader from "../Preloader/Preloader.jsx";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 import "./App.css";
 
@@ -44,6 +45,8 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   // CHECK FOR TOKEN TO LOGIN USER
   // useEffect(() => {
@@ -237,59 +240,66 @@ function App() {
       }}
     >
       <div className="app">
-        <div className="app__content">
-          <Header
-            isLoggedIn={isLoggedIn}
-            handleLoginClick={handleLoginClick}
-            handleRegisterClick={handleRegisterClick}
-          />
-          <Routes>
-            <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
-            <Route
-              path="/recipes"
-              element={
-                <Recipes
-                  onCardClick={handleCardClick}
-                  handleAddFavoriteRecipe={handleAddFavoriteRecipe}
-                  handlePass={handlePass}
-                  recipe1={recipe1}
-                  recipe2={recipe2}
-                  passesLeft={passesLeft}
-                  cardVariant={cardVariant}
-                  isLoggedIn={isLoggedIn}
-                />
-              }
+        {isLoading ? (
+          <div className="app__content">
+            <Preloader />
+          </div>
+        ) : (
+          <div className="app__content">
+            <Header
+              isLoggedIn={isLoggedIn}
+              handleLoginClick={handleLoginClick}
+              handleRegisterClick={handleRegisterClick}
             />
-            <Route path="/about" element={<About />} />
-            <Route path="/profile" element={<Profile />}>
-              <Route index element={<Tutorial />} />
-              <Route path="tutorial" element={<Tutorial />} />
+            <Routes>
+              <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
               <Route
-                path="favorite-recipes"
+                path="/recipes"
                 element={
-                  <FavoriteRecipes
-                    favoriteRecipes={favoriteRecipes}
+                  <Recipes
                     onCardClick={handleCardClick}
+                    handleAddFavoriteRecipe={handleAddFavoriteRecipe}
+                    handlePass={handlePass}
+                    recipe1={recipe1}
+                    recipe2={recipe2}
+                    passesLeft={passesLeft}
                     cardVariant={cardVariant}
+                    isLoggedIn={isLoggedIn}
                   />
                 }
               />
-              <Route
-                path="shopping-list"
-                element={
-                  <ShoppingList
-                    shoppingList={shoppingList}
-                    handleClearListClick={handleClearListClick}
-                    handleAddItemClick={handleAddItemClick}
-                    handleDeleteItemClick={handleShoppingListItemDelete}
-                  />
-                }
-              />
-              <Route path="profile-settings" element={<ProfileSettings />} />
-            </Route>
-          </Routes>
-          <Footer />
-        </div>
+              <Route path="/about" element={<About />} />
+              <Route path="/profile" element={<Profile />}>
+                <Route index element={<Tutorial />} />
+                <Route path="tutorial" element={<Tutorial />} />
+                <Route
+                  path="favorite-recipes"
+                  element={
+                    <FavoriteRecipes
+                      favoriteRecipes={favoriteRecipes}
+                      onCardClick={handleCardClick}
+                      cardVariant={cardVariant}
+                    />
+                  }
+                />
+                <Route
+                  path="shopping-list"
+                  element={
+                    <ShoppingList
+                      shoppingList={shoppingList}
+                      handleClearListClick={handleClearListClick}
+                      handleAddItemClick={handleAddItemClick}
+                      handleDeleteItemClick={handleShoppingListItemDelete}
+                    />
+                  }
+                />
+                <Route path="profile-settings" element={<ProfileSettings />} />
+              </Route>
+            </Routes>
+            <Footer />
+          </div>
+        )}
+
         <IngredientsModal
           activeModal={activeModal}
           closeModal={closeModal}
