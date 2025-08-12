@@ -22,7 +22,7 @@ function RegisterModal({ activeModal, closeModal }) {
 
   return (
     <div className={`modal ${activeModal === "register" && "modal_opened"}`}>
-      <div className="modal__content">
+      <div className="modal__content modal__content_type-auth">
         <button
           className="modal__close-button"
           type="button"
@@ -30,11 +30,13 @@ function RegisterModal({ activeModal, closeModal }) {
         >
           <img className="modal__close-icon" src={Close} alt="close icon" />
         </button>
-        <h2 className="modal__title_type-auth">Register</h2>
-        <form className="modal__form">
+        <h2 className="modal__title modal__title_type-auth">REGISTER</h2>
+        <p className="modal__welcome-message">WELCOME TO FOOD FINDER</p>
+        <form className="modal__form modal__form_type-auth">
           <label className="modal__label">
             Username *
             <input
+              className="modal__input modal__input_type-auth"
               placeholder="Username"
               type="text"
               value={username}
@@ -45,6 +47,7 @@ function RegisterModal({ activeModal, closeModal }) {
           <label className="modal__label">
             Email *
             <input
+              className="modal__input  modal__input_type-auth"
               placeholder="Example@example.com"
               type="email"
               value={email}
@@ -55,6 +58,7 @@ function RegisterModal({ activeModal, closeModal }) {
           <label className="modal__label">
             Password *
             <input
+              className="modal__input modal__input_type-auth"
               placeholder="Password"
               type="password"
               value={password}
@@ -65,6 +69,7 @@ function RegisterModal({ activeModal, closeModal }) {
           <label className="modal__label">
             Avatar
             <input
+              className="modal__input modal__input_type-auth"
               placeholder="Image URL"
               type="url"
               value={avatar}
@@ -72,14 +77,23 @@ function RegisterModal({ activeModal, closeModal }) {
               required
             ></input>
           </label>
-          <button
-            type="submit"
-            onClick={() => {
-              handleSubmit();
-            }}
-          >
-            Register
-          </button>
+          <div className="modal__button-container">
+            <button
+              className="modal__submit-button_type-auth"
+              type="submit"
+              onClick={() => {
+                handleSubmit();
+              }}
+            >
+              Register
+            </button>
+            <button
+              className="modal__switch-button modal__switch-button_type-auth"
+              type="button"
+            >
+              or Login
+            </button>
+          </div>
         </form>
       </div>
     </div>
