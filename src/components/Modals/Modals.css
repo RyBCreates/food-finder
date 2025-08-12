@@ -98,3 +98,8 @@
   width: 33px;
   height: 24px;
 }
+
+.modal__label {
+  display: flex;
+  flex-direction: column;
+}

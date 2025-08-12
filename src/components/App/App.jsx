@@ -149,6 +149,7 @@ function App() {
 
   // Pass/Skip Recipe Card
   const handlePass = (keepIndex) => {
+    console.log("The index to keep is:", keepIndex);
     if (keepIndex === 0 && passesLeft > 0) {
       getRecipe().then((newRecipe) => {
         if (newRecipe !== recipe1 || recipe2) setRecipe1(newRecipe);

@@ -20,7 +20,7 @@ function Recipes({
               recipe={recipe1}
               onCardClick={onCardClick}
               handleAddFavoriteRecipe={handleAddFavoriteRecipe}
-              handlePass={handlePass}
+              handlePass={() => handlePass(0)}
               passesLeft={passesLeft}
             />
 
@@ -28,7 +28,7 @@ function Recipes({
               recipe={recipe2}
               onCardClick={onCardClick}
               handleAddFavoriteRecipe={handleAddFavoriteRecipe}
-              handlePass={handlePass}
+              handlePass={() => handlePass(1)}
               passesLeft={passesLeft}
             />
           </>

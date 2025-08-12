@@ -13,7 +13,22 @@ function RegisterModal({ activeModal, closeModal }) {
         >
           <img className="modal__close-icon" src={Close} alt="close icon" />
         </button>
-        <h2>This is the Login Modal</h2>
+        <h2>Register</h2>
+        <form className="modal__form">
+          <label className="modal__label">
+            Username *<input placeholder="Username"></input>
+          </label>
+          <label className="modal__label">
+            Email *<input placeholder="Example@example.com"></input>
+          </label>
+          <label className="modal__label">
+            Password *<input placeholder="Password"></input>
+          </label>
+          <label className="modal__label">
+            Avatar<input placeholder="Image URL"></input>
+          </label>
+          <button type="submit">Register</button>
+        </form>
       </div>
     </div>
   );

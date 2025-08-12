@@ -51,7 +51,7 @@ function RecipeCard({
             className="card__pass-button"
             onClick={(e) => {
               e.stopPropagation();
-              handlePass(0);
+              handlePass();
             }}
             disabled={passesLeft === 0}
           >
