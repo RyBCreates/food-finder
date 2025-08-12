@@ -39,7 +39,7 @@ function App() {
   const [recipe2, setRecipe2] = useState(null);
 
   // Adjust the number here for testing purposes Set to 3 for Deployment
-  const [passesLeft, setPassesLeft] = useState(25);
+  const [passesLeft, setPassesLeft] = useState(3);
 
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -148,19 +148,22 @@ function App() {
   }, []);
 
   // Pass/Skip Recipe Card
-  const handlePass = (keepIndex) => {
-    console.log("The index to keep is:", keepIndex);
-    if (keepIndex === 0 && passesLeft > 0) {
-      getRecipe().then((newRecipe) => {
-        if (newRecipe !== recipe1 || recipe2) setRecipe1(newRecipe);
-        setPassesLeft((p) => p - 1);
-      });
-    } else if (keepIndex === 1 && passesLeft > 0) {
-      getRecipe().then((newRecipe) => {
-        if (newRecipe !== recipe1 || recipe2) setRecipe2(newRecipe);
-        setPassesLeft((p) => p - 1);
-      });
+  const handlePass = async (keepIndex) => {
+    if (passesLeft <= 0) return;
+
+    let newRecipe;
+    do {
+      newRecipe = await getRecipe();
+      console.log(newRecipe);
+    } while (newRecipe.id === recipe1?.id || newRecipe.id === recipe2?.id);
+
+    if (keepIndex === 0) {
+      setRecipe1(newRecipe);
+    } else if (keepIndex === 1) {
+      setRecipe2(newRecipe);
     }
+
+    setPassesLeft((p) => p - 1);
   };
 
   // Add Recipe to Favorites
