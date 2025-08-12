@@ -1,5 +1,6 @@
 .auth {
   display: flex;
+  justify-content: center;
   gap: 13px;
 }
 
@@ -19,4 +20,15 @@
 
 .auth__register-button {
   background-color: #6ea547;
+}
+
+@media screen and (max-width: 630px) {
+  .auth {
+    font-size: 18px;
+    flex-direction: column;
+  }
+
+  .auth__button {
+    padding: 4px 7px;
+  }
 }

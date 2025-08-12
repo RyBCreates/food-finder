@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 3px;
+  flex-grow: 1;
 }
 
 .search-bar__icon {
@@ -17,6 +18,7 @@
 .search-bar__input {
   padding: 10px 15px;
   border: none;
+  width: 100%;
 }
 
 .search-bar__submit-button {
@@ -29,4 +31,21 @@
 .search-bar__submit-button:hover {
   cursor: pointer;
   background-color: gray;
+}
+
+@media screen and (max-width: 920px) {
+  .search-bar__icon {
+    width: 22px;
+    height: 25px;
+  }
+
+  .search-bar__input {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .search-bar__submit-button {
+    padding: 5px 8px;
+    font-size: 14px;
+  }
 }

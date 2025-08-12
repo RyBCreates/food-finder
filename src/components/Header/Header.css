@@ -93,9 +93,9 @@
 @media (max-width: 600px) {
   .header {
     flex-direction: column;
-    justify-content: space-between;
-    padding: 30px 10px;
-    height: 150px;
+    justify-content: center;
+    padding: 10px 10px;
+    height: 170px;
   }
 
   .header__username {

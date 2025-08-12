@@ -36,7 +36,8 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 290px;
+  z-index: 1;
+  top: 270px;
 }
 
 .filter__option {
@@ -48,4 +49,35 @@
 .filter__option:hover {
   cursor: pointer;
   background-color: gray;
+}
+
+@media screen and (max-width: 630px) {
+  .filter__button {
+    font-size: 18px;
+  }
+
+  .filter__icon {
+    width: 18px;
+    height: 9px;
+  }
+
+  .filter__dropdown {
+    top: 260px;
+  }
+
+  .filter__option {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .filter__dropdown {
+    top: 340px;
+  }
+}
+
+@media screen and (max-width: 452px) {
+  .filter__dropdown {
+    top: 380px;
+  }
 }
