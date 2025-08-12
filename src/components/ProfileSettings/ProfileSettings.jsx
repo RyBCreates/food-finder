@@ -3,19 +3,20 @@ import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 import "./ProfileSettings.css";
 
 function ProfileSettings() {
-  const { currentUser, updateUser } = useContext(CurrentUserContext);
+  const { currentUser, updateUser, handleLogout } =
+    useContext(CurrentUserContext);
 
-  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
   useEffect(() => {
-    setName(currentUser.name);
-    setImageUrl(currentUser.avatar);
+    setUsername(currentUser?.username || "New User");
+    setImageUrl(currentUser?.avatar || "");
   }, [currentUser]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    return updateUser({ name, avatar: imageUrl })
+    return updateUser({ username, avatar: imageUrl })
       .then(() => {})
       .catch((err) => console.error(err));
   };
@@ -29,24 +30,39 @@ function ProfileSettings() {
             className="profile-settings__input"
             type="text"
             placeholder="Username"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           ></input>
         </label>
         <label className="profile-settings__label">
           Avatar Image Url
           <input
             className="profile-settings__input"
-            type="Url"
+            type="url"
             placeholder="Image Url"
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
           ></input>
         </label>
-        <button className="profile-settings__submit-button" type="submit">
+        <button
+          className="profile-settings__submit-button"
+          type="submit"
+          disabled={
+            username === currentUser?.username &&
+            imageUrl === currentUser?.avatar
+          }
+        >
           SAVE
         </button>
       </form>
+      <button
+        className="profile-settings__logout-button"
+        onClick={() => {
+          handleLogout();
+        }}
+      >
+        Log Out
+      </button>
     </section>
   );
 }

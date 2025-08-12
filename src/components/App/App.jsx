@@ -55,7 +55,8 @@ function App() {
 
   // Open Login Modal
   const handleLoginClick = () => {
-    setActiveModal("login");
+    // setActiveModal("login");
+    setIsLoggedIn(true);
   };
 
   // Open Register Modal
@@ -154,7 +155,6 @@ function App() {
     let newRecipe;
     do {
       newRecipe = await getRecipe();
-      console.log(newRecipe);
     } while (newRecipe.id === recipe1?.id || newRecipe.id === recipe2?.id);
 
     if (keepIndex === 0) {
@@ -199,12 +199,12 @@ function App() {
   };
 
   // Update user info
-  const updateUser = ({ name, avatar }) => {
-    return updateProfile({ name, avatar })
+  const updateUser = ({ username, avatar }) => {
+    return updateProfile({ username, avatar })
       .then(() => {
         setCurrentUser((prev) => ({
           ...prev,
-          name,
+          username,
           avatar,
         }));
       })
@@ -214,10 +214,16 @@ function App() {
   };
 
   // login user
-  const handleLogin = () => {};
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    console.log("The user has been set to Logged In:", isLoggedIn);
+  };
 
   // logout user
-  const handleLogout = () => {};
+  const handleLogout = () => {
+    setCurrentUser({});
+    setIsLoggedIn(false);
+  };
 
   return (
     <HashRouter>

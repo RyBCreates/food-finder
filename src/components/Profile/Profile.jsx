@@ -14,10 +14,12 @@ function Profile() {
           <img
             className="profile__avatar"
             src={currentUser?.avatar || defaultAvatar}
-            alt={currentUser?.name || "default avatar"}
+            alt={currentUser?.username || "default avatar"}
           />
         </div>
-        <h2 className="profile__username">{currentUser?.name || "New User"}</h2>
+        <h2 className="profile__username">
+          {currentUser?.username || "New User"}
+        </h2>
       </div>
       <div className="profile__content">
         <SideBar />

@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 const CurrentUserContext = createContext({
   currentUser: {},
-  updateUser: ({ name, avatar }) => {},
+  updateUser: ({ username, avatar }) => {},
   handleLogin: ({ email, password }) => {},
   handleLogout: () => {},
 });

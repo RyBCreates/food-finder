@@ -19,13 +19,13 @@ function Header({ isLoggedIn, handleLoginClick, handleRegisterClick }) {
           <Navbar />
           <Link className="header__user-info" to="/profile">
             <p className="header__username">
-              {currentUser?.name || "New User"}
+              {currentUser?.username || "New User"}
             </p>
             <div className="header__avatar-wrapper">
               <img
                 className="header__avatar"
                 src={currentUser?.avatar || defaultAvatar}
-                alt={currentUser?.name || "default avatar"}
+                alt={currentUser?.username || "default avatar"}
               />
             </div>
           </Link>

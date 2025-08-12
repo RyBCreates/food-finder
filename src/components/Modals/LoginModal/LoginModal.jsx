@@ -16,12 +16,19 @@ function LoginModal({ activeModal, closeModal }) {
         <h2 className="modal__title">Login</h2>
         <form className="modal__form">
           <label className="modal__label">
-            Email *<input placeholder="example@example.com"></input>
+            Email *<input placeholder="Example@example.com"></input>
           </label>
           <label className="modal__label">
-            Password *<input placeholder="password"></input>
+            Password *<input placeholder="Password"></input>
           </label>
-          <button type="submit">Log In</button>
+          <button
+            type="submit"
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
+          >
+            Log In
+          </button>
         </form>
       </div>
     </div>
