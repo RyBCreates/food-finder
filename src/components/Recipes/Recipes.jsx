@@ -10,6 +10,8 @@ function Recipes({
   recipe2,
   passesLeft,
   isLoggedIn,
+  handleLoginClick,
+  handleRegisterClick,
 }) {
   return (
     <section className="recipes app__section">
@@ -44,7 +46,10 @@ function Recipes({
           <p>
             To Enjoy fresh new Recipes everyday, create an account or Sign in!
           </p>
-          <AuthButtons />
+          <AuthButtons
+            handleLoginClick={handleLoginClick}
+            handleRegisterClick={handleRegisterClick}
+          />
         </>
       )}
     </section>

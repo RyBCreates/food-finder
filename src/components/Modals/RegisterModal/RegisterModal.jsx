@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Close from "../../../assets/close-button.svg";
 import "./RegisterModal.css";
 import "../Modals.css";
@@ -18,6 +18,16 @@ function RegisterModal({ activeModal, closeModal, onRegister }) {
       console.error(err.message);
     }
   };
+  const modalType = "register";
+
+  useEffect(() => {
+    if (activeModal === modalType) {
+      setUsername("");
+      setEmail("");
+      setPassword("");
+      setAvatar("");
+    }
+  }, [activeModal]);
 
   return (
     <div className={`modal ${activeModal === "register" && "modal_opened"}`}>

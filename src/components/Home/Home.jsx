@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 import AuthButtons from "../AuthButtons/AuthButtons";
 
-function Home({ isLoggedIn }) {
+function Home({ isLoggedIn, handleLoginClick, handleRegisterClick }) {
   return (
     <section className="home">
       <div className="home__content">
@@ -17,7 +17,10 @@ function Home({ isLoggedIn }) {
             Get Started
           </Link>
         ) : (
-          <AuthButtons />
+          <AuthButtons
+            handleLoginClick={handleLoginClick}
+            handleRegisterClick={handleRegisterClick}
+          />
         )}
       </div>
     </section>
