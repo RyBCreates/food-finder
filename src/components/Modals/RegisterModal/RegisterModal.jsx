@@ -2,9 +2,8 @@ import { useState } from "react";
 import Close from "../../../assets/close-button.svg";
 import "./RegisterModal.css";
 import "../Modals.css";
-import { registerUser } from "../../../utils/user";
 
-function RegisterModal({ activeModal, closeModal }) {
+function RegisterModal({ activeModal, closeModal, onRegister }) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,9 +13,9 @@ function RegisterModal({ activeModal, closeModal }) {
     e.preventDefault();
 
     try {
-      registerUser(username, email, password, avatar);
+      onRegister({ email, username, password, avatar });
     } catch (err) {
-      setError(err.message);
+      console.error(err.message);
     }
   };
 
@@ -32,7 +31,10 @@ function RegisterModal({ activeModal, closeModal }) {
         </button>
         <h2 className="modal__title modal__title_type-auth">REGISTER</h2>
         <p className="modal__welcome-message">WELCOME TO FOOD FINDER</p>
-        <form className="modal__form modal__form_type-auth">
+        <form
+          className="modal__form modal__form_type-auth"
+          onSubmit={handleSubmit}
+        >
           <label className="modal__label">
             Username *
             <input
@@ -74,17 +76,10 @@ function RegisterModal({ activeModal, closeModal }) {
               type="url"
               value={avatar}
               onChange={(e) => setAvatar(e.target.value)}
-              required
             ></input>
           </label>
           <div className="modal__button-container">
-            <button
-              className="modal__submit-button_type-auth"
-              type="submit"
-              onClick={() => {
-                handleSubmit();
-              }}
-            >
+            <button className="modal__submit-button_type-auth" type="submit">
               Register
             </button>
             <button

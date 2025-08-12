@@ -40,7 +40,6 @@ function RecipeCard({
           <button
             className="card__save-button"
             onClick={(e) => {
-              const userId = "64f55d3ea2ceff749c82031e";
               e.stopPropagation();
               handleAddFavoriteRecipe(userId, recipe);
             }}

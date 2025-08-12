@@ -5,6 +5,7 @@ import { mockRecipes } from "../../utils/mockRecipes";
 // For Deployment vvv
 import { fetchRandomRecipe } from "../../utils/Api/recipesApi.js";
 import { addFavorite } from "../../utils/favoriteRecipesApi.js";
+import { checkToken, getToken, login, register } from "../../utils/user.js";
 
 import Header from "../Header/Header";
 import Home from "../Home/Home";
@@ -26,8 +27,6 @@ import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 import "./App.css";
 
 function App() {
-  // CHANGE THIS ONCE USER AUTH IS ADDED
-  const userId = "64f55d3ea2ceff749c82031e";
   const navigate = useNavigate();
 
   const [activeModal, setActiveModal] = useState("");
@@ -50,19 +49,9 @@ function App() {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  // CHECK FOR TOKEN TO LOGIN USER
-  // useEffect(() => {
-  //   try {
-  //     setIsLoggedIn(true);
-  //   } catch (err) {
-  //     console.error("Could not log user in", err);
-  //   }
-  // }, []);
-
   // Open Login Modal
   const handleLoginClick = () => {
-    // setActiveModal("login");
-    setIsLoggedIn(true);
+    setActiveModal("login");
   };
 
   // Open Register Modal
@@ -214,22 +203,74 @@ function App() {
           avatar,
         }));
       })
-      .catch((error) => {
-        console.error("Error updating user:", error);
+      .catch((err) => {
+        console.error("Error updating user:", err);
       });
   };
 
   // login user
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-    console.log("The user has been set to Logged In:", isLoggedIn);
+  const handleLogin = ({ email, password }) => {
+    login({ email, password })
+      .then(() => {
+        setIsLoggedIn(true);
+        return checkToken(data.token);
+      })
+      .then((userData) => {
+        setCurrentUser(userData);
+        navigate("/profile");
+      })
+      .catch((err) => {
+        console.error({ message: "Failed to log in", err });
+      });
   };
+
+  // CHECK FOR TOKEN TO LOGIN USER
+  useEffect(() => {
+    const token = getToken();
+    if (token) {
+      checkToken(token)
+        .then((userData) => {
+          setCurrentUser(userData);
+          setIsLoggedIn(true);
+        })
+        .catch(() => {
+          localStorage.removeItem("jwt");
+        });
+    }
+  }, []);
 
   // logout user
   const handleLogout = () => {
+    localStorage.removeItem("jwt");
     setCurrentUser({});
     setIsLoggedIn(false);
     navigate("/");
+  };
+
+  // Register a user
+  const handleRegister = ({ email, password, username, avatar }) => {
+    register({ email, password, username, avatar })
+      .then(() => {
+        login({ email, password });
+      })
+      .then((data) => {
+        checkToken(data);
+      })
+      .then((userData) => {
+        setIsLoggedIn(true);
+        setCurrentUser(userData);
+        navigate("/profile");
+        closeModal();
+      })
+      .catch((err) => {
+        console.log(email);
+        console.log(username);
+
+        console.log(password);
+        console.log(avatar);
+
+        console.error("Failed to register:", err);
+      });
   };
 
   return (
@@ -321,8 +362,16 @@ function App() {
           handleAddIngredientClick={handleAddIngredientClick}
         />
       </div>
-      <RegisterModal activeModal={activeModal} closeModal={closeModal} />
-      <LoginModal activeModal={activeModal} closeModal={closeModal} />
+      <RegisterModal
+        activeModal={activeModal}
+        closeModal={closeModal}
+        onRegister={handleRegister}
+      />
+      <LoginModal
+        activeModal={activeModal}
+        closeModal={closeModal}
+        onLogin={handleLogin}
+      />
     </CurrentUserContext.Provider>
   );
 }
