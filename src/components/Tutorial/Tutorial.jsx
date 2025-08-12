@@ -12,15 +12,15 @@ function Tutorial() {
           <span className="tutorial__step_bold">Search Recipes:</span> Use the
           search bar on the Favorite Recipes page to find saved recipes by name.
         </li>
-        <li tutorial__step>
+        <li className="tutorial__step">
           <span className="tutorial__step_bold">Save Favorites:</span> Click the
           "SAVE" button to save recipes to your favorites list.
         </li>
-        <li tutorial__step>
+        <li className="tutorial__step">
           <span className="tutorial__step_bold">Create a Shopping List:</span>{" "}
           Add ingredients from any recipe to your shopping list.
         </li>
-        <li tutorial__step>
+        <li className="tutorial__step">
           <span className="tutorial__step_bold">Plan Your Meals:</span> Use the
           upcoming calendar feature to organize weekly meals.
         </li>

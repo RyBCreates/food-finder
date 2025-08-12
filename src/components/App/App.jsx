@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { mockRecipes } from "../../utils/mockRecipes";
 import { fetchRandomRecipe } from "../../utils/Api/recipesApi.js";
 import { addFavorite } from "../../utils/favoriteRecipesApi.js";
@@ -25,6 +25,7 @@ import "./App.css";
 function App() {
   // CHANGE THIS ONCE USER AUTH IS ADDED
   const userId = "64f55d3ea2ceff749c82031e";
+  const navigate = useNavigate();
 
   const [activeModal, setActiveModal] = useState("");
 
@@ -223,95 +224,94 @@ function App() {
   const handleLogout = () => {
     setCurrentUser({});
     setIsLoggedIn(false);
+    navigate("/");
   };
 
   return (
-    <HashRouter>
-      <CurrentUserContext.Provider
-        value={{
-          currentUser,
-          updateUser,
-          handleLogin,
-          handleLogout,
-        }}
-      >
-        <div className="app">
-          <div className="app__content">
-            <Header
-              isLoggedIn={isLoggedIn}
-              handleLoginClick={handleLoginClick}
-              handleRegisterClick={handleRegisterClick}
+    <CurrentUserContext.Provider
+      value={{
+        currentUser,
+        updateUser,
+        handleLogin,
+        handleLogout,
+      }}
+    >
+      <div className="app">
+        <div className="app__content">
+          <Header
+            isLoggedIn={isLoggedIn}
+            handleLoginClick={handleLoginClick}
+            handleRegisterClick={handleRegisterClick}
+          />
+          <Routes>
+            <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
+            <Route
+              path="/recipes"
+              element={
+                <Recipes
+                  onCardClick={handleCardClick}
+                  handleAddFavoriteRecipe={handleAddFavoriteRecipe}
+                  handlePass={handlePass}
+                  recipe1={recipe1}
+                  recipe2={recipe2}
+                  passesLeft={passesLeft}
+                  cardVariant={cardVariant}
+                  isLoggedIn={isLoggedIn}
+                />
+              }
             />
-            <Routes>
-              <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/profile" element={<Profile />}>
+              <Route index element={<Tutorial />} />
+              <Route path="tutorial" element={<Tutorial />} />
               <Route
-                path="/recipes"
+                path="favorite-recipes"
                 element={
-                  <Recipes
+                  <FavoriteRecipes
+                    favoriteRecipes={favoriteRecipes}
                     onCardClick={handleCardClick}
-                    handleAddFavoriteRecipe={handleAddFavoriteRecipe}
-                    handlePass={handlePass}
-                    recipe1={recipe1}
-                    recipe2={recipe2}
-                    passesLeft={passesLeft}
                     cardVariant={cardVariant}
-                    isLoggedIn={isLoggedIn}
                   />
                 }
               />
-              <Route path="/about" element={<About />} />
-              <Route path="/profile" element={<Profile />}>
-                <Route index element={<Tutorial />} />
-                <Route path="tutorial" element={<Tutorial />} />
-                <Route
-                  path="favorite-recipes"
-                  element={
-                    <FavoriteRecipes
-                      favoriteRecipes={favoriteRecipes}
-                      onCardClick={handleCardClick}
-                      cardVariant={cardVariant}
-                    />
-                  }
-                />
-                <Route
-                  path="shopping-list"
-                  element={
-                    <ShoppingList
-                      shoppingList={shoppingList}
-                      handleClearListClick={handleClearListClick}
-                      handleAddItemClick={handleAddItemClick}
-                      handleDeleteItemClick={handleShoppingListItemDelete}
-                    />
-                  }
-                />
-                <Route path="profile-settings" element={<ProfileSettings />} />
-              </Route>
-            </Routes>
-            <Footer />
-          </div>
-          <IngredientsModal
-            activeModal={activeModal}
-            closeModal={closeModal}
-            card={selectedCard}
-            handleSwitchClick={handleSwitchClick}
-            handleAddIngredientClick={handleAddIngredientClick}
-          />
-          <InstructionsModal
-            activeModal={activeModal}
-            closeModal={closeModal}
-            card={selectedCard}
-            handleSwitchClick={handleSwitchClick}
-          />
-          <AddItemModal
-            activeModal={activeModal}
-            closeModal={closeModal}
-            handleAddIngredientClick={handleAddIngredientClick}
-          />
+              <Route
+                path="shopping-list"
+                element={
+                  <ShoppingList
+                    shoppingList={shoppingList}
+                    handleClearListClick={handleClearListClick}
+                    handleAddItemClick={handleAddItemClick}
+                    handleDeleteItemClick={handleShoppingListItemDelete}
+                  />
+                }
+              />
+              <Route path="profile-settings" element={<ProfileSettings />} />
+            </Route>
+          </Routes>
+          <Footer />
         </div>
-        <RegisterModal activeModal={activeModal} closeModal={closeModal} />
-        <LoginModal activeModal={activeModal} closeModal={closeModal} />
-      </CurrentUserContext.Provider>
-    </HashRouter>
+        <IngredientsModal
+          activeModal={activeModal}
+          closeModal={closeModal}
+          card={selectedCard}
+          handleSwitchClick={handleSwitchClick}
+          handleAddIngredientClick={handleAddIngredientClick}
+        />
+        <InstructionsModal
+          activeModal={activeModal}
+          closeModal={closeModal}
+          card={selectedCard}
+          handleSwitchClick={handleSwitchClick}
+        />
+        <AddItemModal
+          activeModal={activeModal}
+          closeModal={closeModal}
+          handleAddIngredientClick={handleAddIngredientClick}
+        />
+      </div>
+      <RegisterModal activeModal={activeModal} closeModal={closeModal} />
+      <LoginModal activeModal={activeModal} closeModal={closeModal} />
+    </CurrentUserContext.Provider>
   );
 }
 
