@@ -1,16 +1,5 @@
 import { baseUrl } from "./constants";
 
-export const checkResponse = (res) => {
-  if (res.ok) {
-    return res.json();
-  }
-  return Promise.reject(`Error: ${res.status}`);
-};
-
-export const getToken = () => {
-  return localStorage.getItem("jwt");
-};
-
 export function register({ email, password, username, avatar }) {
   return fetch(`${baseUrl}/register`, {
     method: "POST",
@@ -47,3 +36,14 @@ export function checkToken(token) {
     },
   }).then(checkResponse);
 }
+
+export const checkResponse = (res) => {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Error: ${res.status}`);
+};
+
+export const getToken = () => {
+  return localStorage.getItem("jwt");
+};

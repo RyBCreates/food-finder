@@ -211,16 +211,19 @@ function App() {
   // login user
   const handleLogin = ({ email, password }) => {
     login({ email, password })
-      .then(() => {
+      .then((data) => {
+        console.log(data.token);
+
         setIsLoggedIn(true);
         return checkToken(data.token);
       })
       .then((userData) => {
         setCurrentUser(userData);
         navigate("/profile");
+        closeModal();
       })
       .catch((err) => {
-        console.error({ message: "Failed to log in", err });
+        console.error("Failed to log in", err);
       });
   };
 
