@@ -179,7 +179,7 @@ function App() {
         setCardVariant("favorite");
       })
       .catch((err) => {
-        console.error("Error adding to favorites:", err);
+        console.error("Error adding to favorites:", err.message);
       });
   };
 
@@ -414,6 +414,5 @@ export default App;
 // 7. Ingredients need to update visually when adding to shopping list
 // 8. "Enjoy and Serve" step appears when no steps available
 // 9. Instructions Modal is not responsive
-// 10. Saving Recipes to Favorites does not work
-// 11. Likes do not populate in favorites section
-// 12. Auth Modals Close Button Styling needs to be fixed
+// 10. Likes do not populate in favorites section
+// 11. Auth Modals Close Button Styling needs to be fixed
