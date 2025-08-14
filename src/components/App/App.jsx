@@ -168,11 +168,19 @@ function App() {
   };
 
   // Add Recipe to Favorites
-  const handleAddFavoriteRecipe = (userId, recipe) => {
-    addFavorite(userId, recipe).then((data) => {
-      setFavoriteRecipes([data, ...favoriteRecipes]);
-      setCardVariant("favorite");
-    });
+  const handleAddFavoriteRecipe = (recipe) => {
+    if (!recipe) {
+      console.error("No recipe provided!");
+      return;
+    }
+    addFavorite(token, recipe)
+      .then((data) => {
+        setFavoriteRecipes([data, ...favoriteRecipes]);
+        setCardVariant("favorite");
+      })
+      .catch((err) => {
+        console.error("Error adding to favorites:", err);
+      });
   };
 
   // Add Ingredients from Ingredient Modal to Shopping List
@@ -231,9 +239,11 @@ function App() {
       });
   };
 
+  const token = getToken();
+
   // CHECK FOR TOKEN TO LOGIN USER
   useEffect(() => {
-    const token = getToken();
+    // const token = getToken();
     if (token) {
       checkToken(token)
         .then((userData) => {
@@ -334,6 +344,8 @@ function App() {
                       favoriteRecipes={favoriteRecipes}
                       onCardClick={handleCardClick}
                       cardVariant={cardVariant}
+                      token={token}
+                      setFavoriteRecipes={setFavoriteRecipes}
                     />
                   }
                 />

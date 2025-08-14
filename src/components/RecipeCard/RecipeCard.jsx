@@ -45,7 +45,7 @@ function RecipeCard({
             className="card__save-button"
             onClick={(e) => {
               e.stopPropagation();
-              handleAddFavoriteRecipe(currentUser?._id, recipe);
+              handleAddFavoriteRecipe(recipe);
             }}
           >
             SAVE

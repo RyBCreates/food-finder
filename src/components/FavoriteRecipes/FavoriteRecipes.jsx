@@ -1,9 +1,27 @@
+import { useEffect } from "react";
+import { fetchFavorites } from "../../utils/favoriteRecipesApi.js";
+
 import FilterMenu from "../FilterMenu/FilterMenu";
 import SearchBar from "../SearchBar/SearchBar";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import "./FavoriteRecipes.css";
 
-function FavoriteRecipes({ onCardClick, favoriteRecipes }) {
+function FavoriteRecipes({
+  onCardClick,
+  favoriteRecipes,
+  token,
+  setFavoriteRecipes,
+}) {
+  useEffect(() => {
+    fetchFavorites(token)
+      .then((data) => {
+        setFavoriteRecipes(data);
+      })
+      .catch((err) => {
+        console.error("Problem fetching favorite recipes:", err);
+      });
+  }, [token]);
+
   return (
     <section className="favorite-recipes">
       <div className="favorite-recipes__filters">
