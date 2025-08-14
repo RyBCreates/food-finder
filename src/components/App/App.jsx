@@ -169,6 +169,7 @@ function App() {
 
   // Add Recipe to Favorites
   const handleAddFavoriteRecipe = (recipe) => {
+    console.log(recipe);
     if (!recipe) {
       console.error("No recipe provided!");
       return;
@@ -412,7 +413,7 @@ export default App;
 // 5. Edit items in Shopping List does not work
 // 6. Ingredient Modal is not responsive
 // 7. Ingredients need to update visually when adding to shopping list
-// 8. "Enjoy and Serve" step appears when no steps available
+// 8. Steps don't appear in the favorites section
 // 9. Instructions Modal is not responsive
 // 10. Likes do not populate in favorites section
 // 11. Auth Modals Close Button Styling needs to be fixed
