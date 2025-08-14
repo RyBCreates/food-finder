@@ -3,7 +3,12 @@ import Close from "../../../assets/close-button.svg";
 import "./RegisterModal.css";
 import "../Modals.css";
 
-function RegisterModal({ activeModal, closeModal, onRegister }) {
+function RegisterModal({
+  activeModal,
+  closeModal,
+  onRegister,
+  handleSwitchAuthClick,
+}) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -95,6 +100,7 @@ function RegisterModal({ activeModal, closeModal, onRegister }) {
             <button
               className="modal__switch-button modal__switch-button_type-auth"
               type="button"
+              onClick={handleSwitchAuthClick}
             >
               or Login
             </button>

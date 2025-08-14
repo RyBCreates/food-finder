@@ -8,7 +8,6 @@ export const fetchRandomRecipe = () => {
     })
     .then((data) => {
       const recipe = data.recipes[0];
-      console.log("Fetched recipes:", recipe);
       return recipe;
     });
 };

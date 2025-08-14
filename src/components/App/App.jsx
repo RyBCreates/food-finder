@@ -72,6 +72,12 @@ function App() {
       : setActiveModal("ingredients");
   };
 
+  const handleSwitchAuthClick = () => {
+    activeModal === "register"
+      ? setActiveModal("login")
+      : setActiveModal("register");
+  };
+
   // Open Add Item Modal
   const handleAddItemClick = () => {
     setActiveModal("add-item");
@@ -212,8 +218,6 @@ function App() {
   const handleLogin = ({ email, password }) => {
     login({ email, password })
       .then((data) => {
-        console.log(data.token);
-
         setIsLoggedIn(true);
         return checkToken(data.token);
       })
@@ -266,12 +270,6 @@ function App() {
         closeModal();
       })
       .catch((err) => {
-        console.log(email);
-        console.log(username);
-
-        console.log(password);
-        console.log(avatar);
-
         console.error("Failed to register:", err);
       });
   };
@@ -380,14 +378,30 @@ function App() {
         activeModal={activeModal}
         closeModal={closeModal}
         onRegister={handleRegister}
+        handleSwitchAuthClick={handleSwitchAuthClick}
       />
       <LoginModal
         activeModal={activeModal}
         closeModal={closeModal}
         onLogin={handleLogin}
+        handleSwitchAuthClick={handleSwitchAuthClick}
       />
     </CurrentUserContext.Provider>
   );
 }
 
 export default App;
+
+// Things that need to be fixed
+// 1. User Avatar image styling if not default is wrong
+// 2. Update User info - connect to backend
+// 3. Filter menu does not work
+// 4. Search Bar does not work
+// 5. Edit items in Shopping List does not work
+// 6. Ingredient Modal is not responsive
+// 7. Ingredients need to update visually when adding to shopping list
+// 8. "Enjoy and Serve" step appears when no steps available
+// 9. Instructions Modal is not responsive
+// 10. Saving Recipes to Favorites does not work
+// 11. Likes do not populate in favorites section
+// 12. Auth Modals Close Button Styling needs to be fixed

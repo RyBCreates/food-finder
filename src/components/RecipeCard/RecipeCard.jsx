@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { formatPrice } from "../../utils/formatPrice";
 import "./RecipeCard.css";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function RecipeCard({
   recipe,
@@ -9,6 +11,8 @@ function RecipeCard({
   passesLeft,
   cardVariant = "default",
 }) {
+  const { currentUser } = useContext(CurrentUserContext);
+
   return (
     <li className="card" onClick={() => onCardClick(recipe)}>
       <img className="card__image" src={recipe.image} alt={recipe.title} />
@@ -41,7 +45,7 @@ function RecipeCard({
             className="card__save-button"
             onClick={(e) => {
               e.stopPropagation();
-              handleAddFavoriteRecipe(userId, recipe);
+              handleAddFavoriteRecipe(currentUser?._id, recipe);
             }}
           >
             SAVE

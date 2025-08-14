@@ -1,6 +1,7 @@
 import { baseUrl } from "./constants";
 
 export const addFavorite = (userId, recipe) => {
+  console.log("Add Favorite Backend hit:", userId, recipe);
   return fetch(`${baseUrl}/favorites`, {
     method: "POST",
     headers: {

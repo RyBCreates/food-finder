@@ -29,6 +29,7 @@
   }
 
   .auth__button {
+    max-width: 250px;
     padding: 4px 7px;
   }
 }
