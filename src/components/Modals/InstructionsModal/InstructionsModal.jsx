@@ -48,24 +48,38 @@ function InstructionsModal({
           <h3 className="modal__instructions-title">Instructions</h3>
         </div>
         <ol className="modal__instructions-list">
-          {card?.analyzedInstructions?.[0]?.steps?.length > 0 ? (
-            <>
-              {card.analyzedInstructions[0].steps.map((step) => (
-                <Instruction key={step.number} instruction={step} />
-              ))}
-              <li className="modal__instructions-item instruction__item">
-                <p className="modal__instructions-step instruction__step">
-                  Serve and Enjoy!
-                </p>
-              </li>
-            </>
-          ) : (
-            <p className="modal__instructions-none">
-              There are currently no steps listed for this recipe, we are in the
-              kitchen cooking something up for this!
-            </p>
-          )}
+          {card ? (
+            card.analyzedInstructions?.[0]?.steps?.length > 0 ? (
+              <>
+                {card.analyzedInstructions[0].steps.map((step) => (
+                  <Instruction key={step.number} instruction={step} />
+                ))}
+                <li className="modal__instructions-item instruction__item">
+                  <p className="modal__instructions-step instruction__step">
+                    Serve and Enjoy!
+                  </p>
+                </li>
+              </>
+            ) : card.instructions?.length > 0 ? (
+              <>
+                {card.instructions.map((step) => (
+                  <Instruction key={step.number} instruction={step} />
+                ))}
+                <li className="modal__instructions-item instruction__item">
+                  <p className="modal__instructions-step instruction__step">
+                    Serve and Enjoy!
+                  </p>
+                </li>
+              </>
+            ) : (
+              <p className="modal__instructions-none">
+                There are currently no steps listed for this recipe, we are in
+                the kitchen cooking something up for this!
+              </p>
+            )
+          ) : null}
         </ol>
+
         <button
           className="modal__switch-button modal__switch-button_instructions"
           type="button"

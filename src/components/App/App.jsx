@@ -169,7 +169,7 @@ function App() {
 
   // Add Recipe to Favorites
   const handleAddFavoriteRecipe = (recipe) => {
-    console.log(recipe);
+    recipe;
     if (!recipe) {
       console.error("No recipe provided!");
       return;
