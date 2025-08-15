@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Close from "../../../assets/close-button.svg";
+import Close from "../../../assets/close-icon-dark.svg";
 import "./LoginModal.css";
 import "../Modals.css";
 
