@@ -32,6 +32,7 @@ function AddItemModal({ activeModal, closeModal, handleAddIngredientClick }) {
             <input
               className="modal__input"
               type="number"
+              min={1}
               placeholder="Amount"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
