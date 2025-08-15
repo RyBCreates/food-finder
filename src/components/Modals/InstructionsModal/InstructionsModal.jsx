@@ -15,7 +15,7 @@ function InstructionsModal({
     <div
       className={`modal ${activeModal === "instructions" && "modal_opened"}`}
     >
-      <div className="modal__content">
+      <div className="modal__content modal__content_type-recipe-info">
         <button
           className="modal__close-button"
           type="button"
@@ -23,7 +23,7 @@ function InstructionsModal({
         >
           <img className="modal__close-icon" src={Close} alt="close icon" />
         </button>
-        <h2 className="modal__recipe-title">{card?.title || "Recipe"}</h2>
+        <h2 className="modal__title">{card?.title || "Recipe"}</h2>
         <div className="modal__recipe-stats">
           <p className="modal__recipe-stat">
             Prep Time:{" "}

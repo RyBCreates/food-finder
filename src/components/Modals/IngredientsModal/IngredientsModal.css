@@ -23,6 +23,8 @@
   gap: 8px;
   margin: 0;
   list-style: none;
+  max-height: 200px;
+  overflow-y: scroll;
 }
 
 .modal__plus-button {

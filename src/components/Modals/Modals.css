@@ -34,6 +34,11 @@
   max-width: 500px;
 }
 
+.modal__content_type-recipe-info {
+  max-height: 750px;
+  max-width: 750px;
+}
+
 .modal__close-button {
   position: absolute;
   top: 20px;
@@ -142,13 +147,14 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-size: 20px;
+  text-wrap: nowrap;
+  font-size: 18px;
 }
 
 .modal__recipe-stat {
-  margin: 20px 0 25px 0;
+  margin: 10px 0 15px 0;
   border-right: 1px solid black;
-  padding: 3px 20px;
+  padding: 10px 20px;
 }
 
 .modal__recipe-stat:first-of-type {
@@ -197,4 +203,20 @@
 .modal__label {
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width: 1000px) {
+  .modal__title {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .modal__title {
+    font-size: 20px;
+  }
+
+  .modal__recipe-stats {
+    font-size: 12px;
+  }
 }

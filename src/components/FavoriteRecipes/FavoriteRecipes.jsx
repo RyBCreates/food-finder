@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { fetchFavorites } from "../../utils/favoriteRecipesApi.js";
 
 import FilterMenu from "../FilterMenu/FilterMenu";
@@ -12,6 +12,22 @@ function FavoriteRecipes({
   token,
   setFavoriteRecipes,
 }) {
+  const [filter, setFilter] = useState("recent");
+
+  const sortedFavorites = [...favoriteRecipes].sort((a, b) => {
+    switch (filter) {
+      case "prep-time":
+        return a.readyInMinutes - b.readyInMinutes;
+      case "cost-per-serving":
+        return a.pricePerServing - b.pricePerServing;
+      case "likes":
+        return b.aggregateLikes - a.aggregateLikes;
+      case "recent":
+      default:
+        return new Date(b.savedAt) - new Date(a.savedAt);
+    }
+  });
+
   useEffect(() => {
     fetchFavorites(token)
       .then((data) => {
@@ -26,17 +42,17 @@ function FavoriteRecipes({
     <section className="favorite-recipes">
       <div className="favorite-recipes__filters">
         <SearchBar />
-        <FilterMenu />
+        <FilterMenu filter={filter} onFilterSelect={setFilter} />
       </div>
       <ul className="favorite-recipes__list">
-        {favoriteRecipes.length === 0 ? (
+        {sortedFavorites.length === 0 ? (
           <>
             <p className="favorite-recipes__empty">
               No Recipes Currently Saved
             </p>
           </>
         ) : (
-          favoriteRecipes.map((favorite) => {
+          sortedFavorites.map((favorite) => {
             return (
               <RecipeCard
                 key={favorite._id}
