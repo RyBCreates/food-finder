@@ -1,11 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Close from "../../../assets/close-button.svg";
 import "./AddItemModal.css";
 import "../Modals.css";
 
-function AddItemModal({ activeModal, closeModal, handleAddIngredientClick }) {
+function AddItemModal({
+  activeModal,
+  closeModal,
+  handleAddIngredientClick,
+  editItem,
+}) {
   const [amount, setAmount] = useState("");
   const [name, setName] = useState("");
+
+  useEffect(() => {
+    if (editItem) {
+      setAmount(editItem.amount);
+      setName(editItem.name);
+    }
+  }, [editItem]);
 
   function handleSubmit(e) {
     e.preventDefault();

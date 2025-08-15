@@ -40,7 +40,7 @@ function ShoppingList({
               <div className="shopping-list__actions">
                 <button
                   className="shopping-list__button shopping-list__edit"
-                  onClick={() => handleEditItemClick(item.id)}
+                  onClick={() => handleEditItemClick(item)}
                 >
                   <img
                     className="shopping-list__edit-icon"

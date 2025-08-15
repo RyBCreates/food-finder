@@ -35,6 +35,7 @@ function App() {
 
   const [selectedCard, setSelectedCard] = useState(null);
   const [shoppingList, setShoppingList] = useState([]);
+  const [editItem, setEditItem] = useState(null);
 
   const [favoriteRecipes, setFavoriteRecipes] = useState([]);
 
@@ -208,6 +209,12 @@ function App() {
     );
   };
 
+  const handleEditShoppingListItemClick = (item) => {
+    setEditItem(item);
+    setActiveModal("add-item");
+    handleShoppingListItemDelete(item.id);
+  };
+
   // Update user info
   const updateUser = ({ username, avatar }) => {
     return updateProfile({ username, avatar })
@@ -357,6 +364,7 @@ function App() {
                       shoppingList={shoppingList}
                       handleClearListClick={handleClearListClick}
                       handleAddItemClick={handleAddItemClick}
+                      handleEditItemClick={handleEditShoppingListItemClick}
                       handleDeleteItemClick={handleShoppingListItemDelete}
                     />
                   }
@@ -385,6 +393,7 @@ function App() {
           activeModal={activeModal}
           closeModal={closeModal}
           handleAddIngredientClick={handleAddIngredientClick}
+          editItem={editItem}
         />
       </div>
       <RegisterModal
