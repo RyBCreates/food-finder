@@ -408,11 +408,9 @@ export default App;
 // Things that need to be fixed
 // 1. User Avatar image styling if not default is wrong
 // 2. Update User info - connect to backend
-// 3. Filter menu does not work
-// 4. Search Bar does not work
-// 5. Edit items in Shopping List does not work
-// 6. Ingredient Modal is not responsive
-// 7. Ingredients need to update visually when adding to shopping list
-// 8. Instructions Modal is not responsive
-// 9. Auth Modals Close Button Styling needs to be fixed
-// 10. Add Delete Button to Favorites Cards - Style - Add Delete function
+// 3. Edit items in Shopping List does not work
+// 4. Ingredient Modal is not responsive
+// 5. Ingredients need to update visually when adding to shopping list
+// 6. Instructions Modal is not responsive
+// 7. Auth Modals Close Button Styling needs to be fixed
+// 8. Add Delete Button to Favorites Cards - Style - Add Delete function

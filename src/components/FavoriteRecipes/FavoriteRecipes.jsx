@@ -13,8 +13,13 @@ function FavoriteRecipes({
   setFavoriteRecipes,
 }) {
   const [filter, setFilter] = useState("recent");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const sortedFavorites = [...favoriteRecipes].sort((a, b) => {
+  const searchedFavorites = favoriteRecipes.filter((recipe) => {
+    return recipe.title.toLowerCase().includes(searchQuery.toLowerCase());
+  });
+
+  const sortedFavorites = [...searchedFavorites].sort((a, b) => {
     switch (filter) {
       case "prep-time":
         return a.readyInMinutes - b.readyInMinutes;
@@ -41,16 +46,12 @@ function FavoriteRecipes({
   return (
     <section className="favorite-recipes">
       <div className="favorite-recipes__filters">
-        <SearchBar />
+        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <FilterMenu filter={filter} onFilterSelect={setFilter} />
       </div>
       <ul className="favorite-recipes__list">
         {sortedFavorites.length === 0 ? (
-          <>
-            <p className="favorite-recipes__empty">
-              No Recipes Currently Saved
-            </p>
-          </>
+          <p className="favorite-recipes__empty">No Recipes Currently Saved</p>
         ) : (
           sortedFavorites.map((favorite) => {
             return (
