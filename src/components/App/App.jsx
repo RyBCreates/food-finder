@@ -5,7 +5,13 @@ import { mockRecipes } from "../../utils/mockRecipes";
 // For Deployment vvv
 import { fetchRandomRecipe } from "../../utils/Api/recipesApi.js";
 import { addFavorite } from "../../utils/favoriteRecipesApi.js";
-import { checkToken, getToken, login, register } from "../../utils/user.js";
+import {
+  checkToken,
+  getToken,
+  login,
+  register,
+  updateProfile,
+} from "../../utils/user.js";
 
 import Header from "../Header/Header";
 import Home from "../Home/Home";
@@ -109,11 +115,7 @@ function App() {
     };
   }, []);
 
-  // MOCK BACKEND CALLS vvvv
-
-  const updateProfile = ({ name, avatar }) => {
-    return Promise.resolve({ name, avatar });
-  };
+  // MOCK BACKEND CALL vvvv
 
   // IF OUT OF API CALLS, USE THIS FUNCTION
   const getRecipe = async () => {
@@ -121,7 +123,7 @@ function App() {
     return Promise.resolve(mockRecipes[randomIndex]);
   };
 
-  // MOCK BACKEND CALLS ^^^^
+  // MOCK BACKEND CALL^^^^
 
   // REAL API CALLS (Use for deployment)
   // const getRecipe = async () => {
@@ -251,7 +253,6 @@ function App() {
 
   // CHECK FOR TOKEN TO LOGIN USER
   useEffect(() => {
-    // const token = getToken();
     if (token) {
       checkToken(token)
         .then((userData) => {
@@ -416,10 +417,8 @@ export default App;
 
 // Things that need to be fixed
 // 1. User Avatar image styling if not default is wrong
-// 2. Update User info - connect to backend
-// 3. Edit items in Shopping List does not work
-// 4. Ingredient Modal is not responsive
-// 5. Ingredients need to update visually when adding to shopping list
-// 6. Instructions Modal is not responsive
-// 7. Auth Modals Close Button Styling needs to be fixed
-// 8. Add Delete Button to Favorites Cards - Style - Add Delete function
+// 2. Ingredient Modal is not responsive
+// 3. Ingredients need to update visually when adding to shopping list
+// 4. Instructions Modal is not responsive
+// 5. Auth Modals Close Button Styling needs to be fixed
+// 6. Add Delete Button to Favorites Cards - Style - Add Delete function
