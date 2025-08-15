@@ -36,6 +36,11 @@
   cursor: pointer;
 }
 
+.modal__plus-button_hidden {
+  /* display: none; */
+  visibility: hidden;
+}
+
 .modal__plus-icon {
   width: 14px;
   height: 14px;

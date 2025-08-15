@@ -125,7 +125,7 @@ function App() {
 
   // MOCK BACKEND CALL^^^^
 
-  // REAL API CALLS (Use for deployment)
+  // REAL API CALL (Use for deployment)
   // const getRecipe = async () => {
   //   return await fetchRandomRecipe();
   // };
@@ -211,6 +211,7 @@ function App() {
     );
   };
 
+  // Edit an Item from the Shopping List
   const handleEditShoppingListItemClick = (item) => {
     setEditItem(item);
     setActiveModal("add-item");
@@ -418,7 +419,6 @@ export default App;
 // Things that need to be fixed
 // 1. User Avatar image styling if not default is wrong
 // 2. Ingredient Modal is not responsive
-// 3. Ingredients need to update visually when adding to shopping list
-// 4. Instructions Modal is not responsive
-// 5. Auth Modals Close Button Styling needs to be fixed
-// 6. Add Delete Button to Favorites Cards - Style - Add Delete function
+// 3. Instructions Modal is not responsive
+// 4. Auth Modals Close Button Styling needs to be fixed
+// 5. Add Delete Button to Favorites Cards - Style - Add Delete function
