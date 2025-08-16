@@ -4,7 +4,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { mockRecipes } from "../../utils/mockRecipes";
 // For Deployment vvv
 import { fetchRandomRecipe } from "../../utils/Api/recipesApi.js";
-import { addFavorite } from "../../utils/favoriteRecipesApi.js";
+import { addFavorite, deleteFavorite } from "../../utils/favoriteRecipesApi.js";
 import {
   checkToken,
   getToken,
@@ -172,7 +172,6 @@ function App() {
 
   // Add Recipe to Favorites
   const handleAddFavoriteRecipe = (recipe) => {
-    recipe;
     if (!recipe) {
       console.error("No recipe provided!");
       return;
@@ -181,10 +180,20 @@ function App() {
       .then((data) => {
         setFavoriteRecipes([data, ...favoriteRecipes]);
         setCardVariant("favorite");
+        alert("Recipe has been added to your Favorites Section");
       })
       .catch((err) => {
         console.error("Error adding to favorites:", err.message);
       });
+  };
+
+  const handleDeleteFavoriteRecipe = (recipe) => {
+    const token = getToken();
+    deleteFavorite(token, recipe).then(() => {
+      setFavoriteRecipes((prevList) =>
+        prevList.filter((item) => item._id !== recipe._id)
+      );
+    });
   };
 
   // Add Ingredients from Ingredient Modal to Shopping List
@@ -356,6 +365,7 @@ function App() {
                       cardVariant={cardVariant}
                       token={token}
                       setFavoriteRecipes={setFavoriteRecipes}
+                      handleDeleteFavoriteRecipe={handleDeleteFavoriteRecipe}
                     />
                   }
                 />
@@ -420,4 +430,3 @@ export default App;
 // 1. User Avatar image styling if not default is wrong
 // 2. Ingredient Modal is not responsive
 // 3. Instructions Modal is not responsive
-// 4. Add Delete Button to Favorites Cards - Style - Add Delete function

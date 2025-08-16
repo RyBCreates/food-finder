@@ -11,6 +11,7 @@ function FavoriteRecipes({
   favoriteRecipes,
   token,
   setFavoriteRecipes,
+  handleDeleteFavoriteRecipe,
 }) {
   const [filter, setFilter] = useState("recent");
   const [searchQuery, setSearchQuery] = useState("");
@@ -59,6 +60,7 @@ function FavoriteRecipes({
                 key={favorite._id}
                 recipe={favorite}
                 onCardClick={onCardClick}
+                handleDeleteFavoriteRecipe={handleDeleteFavoriteRecipe}
                 cardVariant="favorite"
               />
             );

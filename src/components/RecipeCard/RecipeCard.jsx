@@ -5,6 +5,7 @@ function RecipeCard({
   recipe,
   onCardClick,
   handleAddFavoriteRecipe,
+  handleDeleteFavoriteRecipe,
   handlePass,
   passesLeft,
   cardVariant = "default",

@@ -1,4 +1,5 @@
 import { baseUrl } from "./constants";
+import { checkResponse } from "./user";
 
 export const fetchFavorites = async (token) => {
   const res = await fetch(`${baseUrl}/favorites`, {
@@ -33,4 +34,13 @@ export const addFavorite = (token, recipe) => {
     }
     return res.json();
   });
+};
+
+export const deleteFavorite = (token, recipe) => {
+  return fetch(`${baseUrl}/favorites/${recipe._id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }).then(checkResponse);
 };
