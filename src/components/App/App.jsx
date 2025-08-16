@@ -420,5 +420,4 @@ export default App;
 // 1. User Avatar image styling if not default is wrong
 // 2. Ingredient Modal is not responsive
 // 3. Instructions Modal is not responsive
-// 4. Auth Modals Close Button Styling needs to be fixed
-// 5. Add Delete Button to Favorites Cards - Style - Add Delete function
+// 4. Add Delete Button to Favorites Cards - Style - Add Delete function

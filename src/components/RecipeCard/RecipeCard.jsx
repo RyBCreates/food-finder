@@ -35,7 +35,7 @@ function RecipeCard({
           </p>
         </div>
       </div>
-      {cardVariant === "default" && (
+      {cardVariant === "default" ? (
         <div className="card__buttons-container">
           <button
             className="card__save-button"
@@ -55,6 +55,18 @@ function RecipeCard({
             disabled={passesLeft === 0}
           >
             PASS
+          </button>
+        </div>
+      ) : (
+        <div className="card__buttons-container">
+          <button
+            className="card__delete-button"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleDeleteFavoriteRecipe(recipe);
+            }}
+          >
+            DELETE
           </button>
         </div>
       )}
