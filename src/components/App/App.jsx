@@ -427,6 +427,5 @@ function App() {
 export default App;
 
 // Things that need to be fixed
-// 1. User Avatar image styling if not default is wrong
-// 2. Ingredient Modal is not responsive
-// 3. Instructions Modal is not responsive
+// 1. Ingredient Modal is not responsive
+// 2. Instructions Modal is not responsive

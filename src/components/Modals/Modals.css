@@ -212,11 +212,111 @@
 }
 
 @media screen and (max-width: 800px) {
+  .modal__content_type-recipe-info {
+    max-height: 400px;
+    overflow-y: scroll;
+  }
+
   .modal__title {
     font-size: 20px;
   }
 
   .modal__recipe-stats {
     font-size: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .modal__recipe-stat {
+    border: none;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .modal__ingredients-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .modal__ingredients-title {
+    font-size: 20px;
+  }
+
+  .modal__ingredients-description {
+    font-size: 11px;
+  }
+
+  .modal__ingredients-list {
+    grid-template-columns: 1fr;
+    max-height: 180px;
+    gap: 6px;
+    padding-left: 0;
+  }
+
+  .modal__plus-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .modal__switch-button_ingredients {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .modal__instructions-list {
+    padding-left: 20px;
+    max-height: 180px;
+  }
+
+  .modal__instructions-title {
+    font-size: 18px;
+  }
+
+  .modal__instructions-none {
+    padding: 15px 20px 0 0;
+    font-size: 12px;
+  }
+
+  .modal__switch-button_instructions {
+    margin-right: 0;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .modal__ingredients-title {
+    font-size: 16px;
+  }
+
+  .modal__ingredients-description {
+    font-size: 10px;
+  }
+
+  .modal__ingredients-list {
+    max-height: 150px;
+    gap: 4px;
+  }
+
+  .modal__plus-icon {
+    width: 10px;
+    height: 10px;
+  }
+
+  .modal__instructions-list {
+    padding-left: 15px;
+    max-height: 150px;
+  }
+
+  .modal__instructions-title {
+    font-size: 16px;
+  }
+
+  .modal__instructions-none {
+    font-size: 10px;
+    padding: 10px 15px 0 0;
   }
 }

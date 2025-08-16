@@ -37,7 +37,6 @@
 }
 
 .modal__plus-button_hidden {
-  /* display: none; */
   visibility: hidden;
 }
 
