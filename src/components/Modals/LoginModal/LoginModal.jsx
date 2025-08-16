@@ -41,6 +41,7 @@ function LoginModal({
             Email *
             <input
               className="modal__input modal__input_type-auth"
+              type="email"
               placeholder="Example@example.com"
               value={email}
               onChange={(e) => {

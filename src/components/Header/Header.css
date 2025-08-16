@@ -87,6 +87,9 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.header__avatar_default {
   transform: translateY(3px);
 }
 

@@ -23,7 +23,11 @@ function Header({ isLoggedIn, handleLoginClick, handleRegisterClick }) {
             </p>
             <div className="header__avatar-wrapper">
               <img
-                className="header__avatar"
+                className={`header__avatar ${
+                  currentUser?.avatar && currentUser.avatar !== ""
+                    ? ""
+                    : "header__avatar_default"
+                }`}
                 src={currentUser?.avatar || defaultAvatar}
                 alt={currentUser?.username || "default avatar"}
               />

@@ -65,7 +65,11 @@ function Profile() {
 
         <div className="profile__avatar-wrapper">
           <img
-            className="profile__avatar"
+            className={`profile__avatar ${
+              currentUser?.avatar && currentUser.avatar !== ""
+                ? ""
+                : "profile__avatar_default"
+            }`}
             src={currentUser?.avatar || defaultAvatar}
             alt={currentUser?.username || "default avatar"}
           />
