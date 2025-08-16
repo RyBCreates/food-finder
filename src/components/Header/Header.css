@@ -101,6 +101,10 @@
     height: 170px;
   }
 
+  .header__menu {
+    flex-direction: column-reverse;
+  }
+
   .header__username {
     font-size: 18px;
   }

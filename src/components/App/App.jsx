@@ -425,7 +425,3 @@ function App() {
 }
 
 export default App;
-
-// Things that need to be fixed
-// 1. Ingredient Modal is not responsive
-// 2. Instructions Modal is not responsive

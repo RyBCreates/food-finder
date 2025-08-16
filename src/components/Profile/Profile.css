@@ -105,11 +105,15 @@
     height: 35px;
   }
 
+  .profile__avatar {
+    object-fit: cover;
+  }
+
   .profile__avatar_default {
     transform: translateY(5px);
   }
 
   .profile__username {
-    font-size: 24px;
+    font-size: 18px;
   }
 }
