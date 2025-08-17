@@ -1,0 +1,50 @@
+.modal__ingredients-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 17px;
+}
+
+.modal__ingredients-title {
+  margin: 0;
+  font-size: 26px;
+}
+
+.modal__ingredients-description {
+  font-size: 12px;
+  white-space: wrap;
+  margin: 0;
+}
+
+.modal__ingredients-list {
+  padding: 20px 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 8px;
+  margin: 0;
+  list-style: none;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.modal__plus-button {
+  border: none;
+  background-color: transparent;
+}
+
+.modal__plus-button:hover {
+  cursor: pointer;
+}
+
+.modal__plus-button_hidden {
+  visibility: hidden;
+}
+
+.modal__plus-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.modal__switch-button_ingredients {
+  margin-left: auto;
+}

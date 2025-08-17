@@ -1,0 +1,17 @@
+.instruction__item {
+  font-size: 18px;
+}
+
+/* .instruction__item:last-child {
+    margin-bottom: 0;
+  } */
+
+.instruction__step {
+  margin: 10px 0 0;
+  font-size: 16px;
+  white-space: wrap;
+}
+
+/* .instruction__step:last-of-type {
+    margin-bottom: 0;
+  } */

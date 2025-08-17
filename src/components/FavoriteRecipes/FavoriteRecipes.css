@@ -1,0 +1,42 @@
+.favorite-recipes {
+  padding: 0 0 0 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.favorite-recipes__filters {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-bottom: 40px;
+}
+
+.favorite-recipes__list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0;
+  width: 100%;
+  margin: 0;
+}
+.favorite-recipes__empty {
+  margin: 0 0 30px 50px;
+}
+
+@media screen and (max-width: 630px) {
+  .favorite-recipes {
+    padding: 0;
+  }
+
+  .favorite-recipes__filters {
+    padding-bottom: 20px;
+  }
+
+  .favorite-recipes__list {
+    gap: 20px;
+  }
+  .favorite-recipes__empty {
+    margin: 0 0 30px 20px;
+  }
+}

@@ -1,0 +1,14 @@
+.ingredient {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.ingredient__name {
+  font-size: 14px;
+  margin: 0;
+}
+
+.ingredient__amount {
+  font-weight: 700;
+}

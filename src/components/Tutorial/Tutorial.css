@@ -1,0 +1,37 @@
+.tutorial {
+  padding: 30px;
+  font-family: "Quicksand", sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  color: #333;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tutorial__title {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.tutorial__intro {
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.tutorial__steps {
+  list-style: none;
+  padding-left: 0;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+.tutorial__step_bold {
+  font-weight: 700;
+}
+
+.tutorial__footer {
+  margin-top: 30px;
+  font-weight: 700;
+  color: #6ea547;
+}

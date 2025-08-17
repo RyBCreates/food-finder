@@ -1,0 +1,92 @@
+.profile-settings {
+  width: 100vh;
+}
+
+.profile-settings__title {
+  padding: 30px 0 40px 60px;
+  margin: 0;
+  font-size: 32px;
+}
+
+.profile-settings__form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  margin: 0 60px;
+  gap: 40px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #d9d9d9;
+}
+
+.profile-settings__label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  color: black;
+}
+
+.profile-settings__input {
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.profile-settings__submit-button {
+  background-color: black;
+  color: white;
+  font-size: 32px;
+  padding: 8px 15px;
+  border-radius: 10px;
+  border: none;
+}
+
+.profile-settings__submit-button:hover {
+  cursor: pointer;
+  background-color: rgb(100, 100, 100);
+}
+
+.profile-settings__logout-button {
+  background-color: transparent;
+  border: none;
+  color: rgb(198, 0, 0);
+  padding: 0;
+  margin: 30px 0 0 60px;
+}
+
+.profile-settings__logout-button:hover {
+  cursor: pointer;
+  color: rgb(255, 103, 103);
+  scale: 1.1;
+}
+
+@media screen and (max-width: 630px) {
+  .profile-settings__title {
+    padding: 10px 0 20px 0;
+    font-size: 24px;
+  }
+
+  .profile-settings__form {
+    padding: 20px;
+    margin: 0;
+    gap: 20px;
+  }
+
+  .profile-settings__label {
+    font-size: 16px;
+  }
+
+  .profile-settings__input {
+    font-size: 12px;
+  }
+
+  .profile-settings__submit-button {
+    font-size: 24px;
+  }
+
+  .profile-settings__logout-button {
+    margin: 15px 0 0 0;
+  }
+}

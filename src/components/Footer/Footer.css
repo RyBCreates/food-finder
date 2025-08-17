@@ -1,0 +1,17 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__copyright {
+  opacity: 40%;
+  margin: 0;
+  padding: 20px 0;
+}
+
+@media (max-width: 600px) {
+  .footer__copyright {
+    font-size: 12px;
+  }
+}
